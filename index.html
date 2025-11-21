@@ -90,8 +90,8 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Image hover effects */
-        img:hover {
+        /* Image hover effects - will combine with parallax */
+        img:not(.parallax-slow):not(.parallax-medium):not(.parallax-fast):hover {
             transform: scale(1.02);
         }
 
@@ -105,14 +105,30 @@
             transform: scale(1.1);
         }
 
-        /* Ingredient image hover */
-        .ingredient-image:hover {
+        /* Ingredient image hover - parallax images handled in JS */
+        .ingredient-image:not(.parallax-slow):not(.parallax-medium):not(.parallax-fast):hover {
             transform: scale(1.05);
         }
 
         /* Navigation link hover */
         nav a:not(.bg-black):hover {
             transform: translateY(-2px);
+        }
+
+        /* Parallax elements */
+        .parallax-slow {
+            will-change: transform;
+            transform: translateZ(0);
+        }
+
+        .parallax-medium {
+            will-change: transform;
+            transform: translateZ(0);
+        }
+
+        .parallax-fast {
+            will-change: transform;
+            transform: translateZ(0);
         }
 
     </style>
@@ -161,7 +177,7 @@
 
         <div class="relative w-full rounded-3xl overflow-hidden min-h-[600px] md:min-h-[700px] flex items-center">
 
-            <img src="hero-image.jpg" alt="Chocolate chip cookies with nuts on dark surface" class="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="eager">
+            <img src="hero-image.jpg" alt="Chocolate chip cookies with nuts on dark surface" class="parallax-slow absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="eager">
 
             <!-- Gradient overlay for headline contrast -->
             <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent z-0"></div>
@@ -289,7 +305,7 @@
 
             <div class="md:col-span-2 md:row-span-2 bg-cream rounded-3xl p-10 flex flex-col justify-end relative overflow-hidden">
 
-                <img src="Butter.png" alt="Real Pure & Natural European Butter" class="ingredient-image absolute inset-0 w-full h-full object-cover">
+                <img src="Butter.png" alt="Real Pure & Natural European Butter" class="parallax-medium ingredient-image absolute inset-0 w-full h-full object-cover">
 
                 <div class="relative z-10">
 
@@ -303,7 +319,7 @@
 
             <div class="bg-cream rounded-3xl p-8 flex flex-col justify-end relative overflow-hidden h-64 md:h-auto">
 
-                <img src="Vanilla.png" alt="100% Madagascar Vanilla" class="ingredient-image absolute inset-0 w-full h-full object-cover">
+                <img src="Vanilla.png" alt="100% Madagascar Vanilla" class="parallax-fast ingredient-image absolute inset-0 w-full h-full object-cover">
 
                 <div class="relative z-10">
 
@@ -315,7 +331,7 @@
 
             <div class="bg-cream rounded-3xl p-8 flex flex-col justify-end relative overflow-hidden h-64 md:h-auto">
 
-                <img src="Chocolate.png" alt="Ethically Sourced Chocolate" class="ingredient-image absolute inset-0 w-full h-full object-cover">
+                <img src="Chocolate.png" alt="Ethically Sourced Chocolate" class="parallax-fast ingredient-image absolute inset-0 w-full h-full object-cover">
 
                 <div class="relative z-10">
 
@@ -444,6 +460,77 @@
     </footer>
 
 
+
+    <script>
+        // Subtle parallax effect on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const parallaxElements = document.querySelectorAll('.parallax-slow, .parallax-medium, .parallax-fast');
+            
+            // Parallax speed multipliers (lower = slower movement, more subtle)
+            const speeds = {
+                'parallax-slow': 0.2,
+                'parallax-medium': 0.3,
+                'parallax-fast': 0.4
+            };
+
+            function updateParallax() {
+                const scrollY = window.pageYOffset;
+                const windowHeight = window.innerHeight;
+                
+                parallaxElements.forEach(element => {
+                    const className = Array.from(element.classList).find(cls => cls.startsWith('parallax-'));
+                    const speed = speeds[className] || 0.3;
+                    const rect = element.getBoundingClientRect();
+                    const elementTop = rect.top + scrollY;
+                    
+                    // Only apply parallax when element is in or near viewport
+                    if (rect.bottom >= -windowHeight && rect.top <= windowHeight * 2) {
+                        // Calculate parallax based on scroll position
+                        const scrolled = scrollY - (elementTop - windowHeight);
+                        const translateY = scrolled * speed * 0.12; // Very subtle multiplier
+                        
+                        // Store parallax value in data attribute
+                        element.dataset.parallaxY = translateY;
+                        
+                        // Apply transform - will combine with hover scale via CSS
+                        element.style.setProperty('--parallax-translate', `${translateY}px`);
+                    }
+                });
+            }
+
+            // Add CSS for parallax transform that works with hover
+            const style = document.createElement('style');
+            style.textContent = `
+                .parallax-slow, .parallax-medium, .parallax-fast {
+                    transform: translate3d(0, var(--parallax-translate, 0), 0);
+                }
+                .parallax-slow:hover, .parallax-medium:hover, .parallax-fast:hover {
+                    transform: translate3d(0, var(--parallax-translate, 0), 0) scale(1.02);
+                }
+                .ingredient-image.parallax-slow:hover,
+                .ingredient-image.parallax-medium:hover,
+                .ingredient-image.parallax-fast:hover {
+                    transform: translate3d(0, var(--parallax-translate, 0), 0) scale(1.05);
+                }
+            `;
+            document.head.appendChild(style);
+
+            // Throttle scroll events for performance
+            let ticking = false;
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    window.requestAnimationFrame(function() {
+                        updateParallax();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }, { passive: true });
+
+            // Initial call
+            updateParallax();
+        });
+    </script>
 
 </body>
 
