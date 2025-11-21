@@ -113,20 +113,25 @@
             width: 100%;
             height: 100%;
             opacity: 0;
-            transition: opacity 1.5s ease-in-out;
+            transition: opacity 2s ease-in-out;
             z-index: 1;
+            pointer-events: none;
         }
 
         .carousel-slide.active {
             opacity: 1;
-            position: relative;
             z-index: 2;
+            pointer-events: auto;
         }
 
         .carousel-slide img {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center;
             display: block;
         }
 
@@ -629,8 +634,12 @@
             const dots = document.querySelectorAll('.carousel-dot');
             let currentSlide = 0;
             let carouselInterval;
+            let isTransitioning = false;
 
             function showSlide(index) {
+                if (isTransitioning) return;
+                isTransitioning = true;
+
                 // Remove active class from all slides and dots
                 slides.forEach(slide => slide.classList.remove('active'));
                 dots.forEach(dot => dot.classList.remove('active'));
@@ -639,24 +648,35 @@
                 slides[index].classList.add('active');
                 dots[index].classList.add('active');
                 currentSlide = index;
+
+                // Reset transition flag after transition completes
+                setTimeout(() => {
+                    isTransitioning = false;
+                }, 2000);
             }
 
             function nextSlide() {
+                if (isTransitioning) return;
                 const next = (currentSlide + 1) % slides.length;
                 showSlide(next);
             }
 
             function startCarousel() {
-                carouselInterval = setInterval(nextSlide, 8000); // Change slide every 8 seconds
+                if (carouselInterval) clearInterval(carouselInterval);
+                carouselInterval = setInterval(nextSlide, 12000); // Change slide every 12 seconds
             }
 
             function stopCarousel() {
-                clearInterval(carouselInterval);
+                if (carouselInterval) {
+                    clearInterval(carouselInterval);
+                    carouselInterval = null;
+                }
             }
 
             // Dot navigation
             dots.forEach((dot, index) => {
                 dot.addEventListener('click', () => {
+                    if (isTransitioning) return;
                     stopCarousel();
                     showSlide(index);
                     startCarousel();
@@ -670,8 +690,24 @@
                 carouselContainer.addEventListener('mouseleave', startCarousel);
             }
 
-            // Start the carousel
-            startCarousel();
+            // Wait for images to load, then start the carousel
+            const images = document.querySelectorAll('.carousel-slide img');
+            let loadedCount = 0;
+            images.forEach(img => {
+                if (img.complete) {
+                    loadedCount++;
+                } else {
+                    img.addEventListener('load', () => {
+                        loadedCount++;
+                        if (loadedCount === images.length) {
+                            setTimeout(startCarousel, 500);
+                        }
+                    });
+                }
+            });
+            if (loadedCount === images.length) {
+                setTimeout(startCarousel, 500);
+            }
         });
     </script>
 
