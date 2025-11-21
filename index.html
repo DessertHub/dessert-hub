@@ -16,7 +16,14 @@
 
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
 
-        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            -webkit-font-smoothing: antialiased; 
+        }
 
         @keyframes slideInFromLeft {
             from {
@@ -29,8 +36,62 @@
             }
         }
 
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes iconPulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
         .slide-in {
             animation: slideInFromLeft 0.8s ease-out forwards;
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        /* Smooth hover transitions for all interactive elements */
+        button, a, img {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Image hover effects */
+        img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Icon hover effects */
+        .icon-container:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .icon-container:hover svg {
+            transform: scale(1.1);
+        }
+
+        /* Ingredient image hover */
+        .ingredient-image:hover {
+            transform: scale(1.05);
+        }
+
+        /* Navigation link hover */
+        nav a:not(.bg-black):hover {
+            transform: translateY(-2px);
         }
 
     </style>
@@ -46,20 +107,20 @@
         <div class="max-w-7xl mx-auto px-6 h-28 flex items-center justify-between">
 
             <div class="flex items-center">
-                <img src="Dessert Hub.png" alt="Dessert Hub" class="h-24 w-auto">
+                <img src="Dessert Hub.png" alt="Dessert Hub" class="h-24 w-auto hover:scale-105 transition-transform duration-300 cursor-pointer">
             </div>
 
             <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-500">
 
-                <a href="#" class="hover:text-black transition">Our Process</a>
+                <a href="#" class="hover:text-black hover:translate-y-[-2px] transition-all duration-300">Our Process</a>
 
-                <a href="#" class="hover:text-black transition">The Margins</a>
+                <a href="#" class="hover:text-black hover:translate-y-[-2px] transition-all duration-300">The Margins</a>
 
-                <a href="#" class="hover:text-black transition">Ingredients</a>
+                <a href="#" class="hover:text-black hover:translate-y-[-2px] transition-all duration-300">Ingredients</a>
 
             </div>
 
-            <a href="https://calendar.app.google/ku72zjP55xUYKa4eA" target="_blank" rel="noopener noreferrer" class="bg-black text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-gray-800 transition">
+            <a href="https://calendar.app.google/ku72zjP55xUYKa4eA" target="_blank" rel="noopener noreferrer" class="bg-black text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-gray-800 hover:scale-105 hover:shadow-lg transition-all duration-300">
 
                 Request a Tasting
 
@@ -75,7 +136,7 @@
 
         <div class="relative w-full rounded-3xl overflow-hidden min-h-[600px] md:min-h-[700px] flex items-center">
 
-            <img src="hero-image.jpg" alt="Chocolate chip cookies with nuts on dark surface" class="absolute inset-0 w-full h-full object-cover" loading="eager">
+            <img src="hero-image.jpg" alt="Chocolate chip cookies with nuts on dark surface" class="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="eager">
 
             <!-- Gradient overlay for headline contrast -->
             <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent z-0"></div>
@@ -111,13 +172,13 @@
 
                     <div class="flex space-x-4 pt-4">
 
-                        <button class="bg-black text-white px-8 py-4 rounded-full font-semibold text-lg hover:scale-105 transition transform shadow-lg">
+                        <button class="bg-black text-white px-8 py-4 rounded-full font-semibold text-lg hover:scale-105 hover:shadow-xl transition-all duration-300 shadow-lg">
 
                             Start a Trial
 
                         </button>
 
-                        <button class="bg-white/90 backdrop-blur-sm text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-white transition shadow-lg">
+                        <button class="bg-white/90 backdrop-blur-sm text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:scale-105 hover:shadow-xl transition-all duration-300 shadow-lg">
 
                             See the Margins
 
@@ -139,11 +200,11 @@
 
         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-12 text-center">
 
-            <div class="space-y-4">
+            <div class="space-y-4 fade-in-up" style="animation-delay: 0.1s; opacity: 0;">
 
-                <div class="w-12 h-12 bg-black rounded-xl mx-auto flex items-center justify-center text-white mb-4">
+                <div class="icon-container w-12 h-12 bg-black rounded-xl mx-auto flex items-center justify-center text-white mb-4 transition-all duration-300">
 
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <svg class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
 
                 </div>
 
@@ -153,11 +214,11 @@
 
             </div>
 
-            <div class="space-y-4">
+            <div class="space-y-4 fade-in-up" style="animation-delay: 0.2s; opacity: 0;">
 
-                <div class="w-12 h-12 bg-black rounded-xl mx-auto flex items-center justify-center text-white mb-4">
+                <div class="icon-container w-12 h-12 bg-black rounded-xl mx-auto flex items-center justify-center text-white mb-4 transition-all duration-300">
 
-                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                     <svg class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
 
                 </div>
 
@@ -167,11 +228,11 @@
 
             </div>
 
-            <div class="space-y-4">
+            <div class="space-y-4 fade-in-up" style="animation-delay: 0.3s; opacity: 0;">
 
-                <div class="w-12 h-12 bg-black rounded-xl mx-auto flex items-center justify-center text-white mb-4">
+                <div class="icon-container w-12 h-12 bg-black rounded-xl mx-auto flex items-center justify-center text-white mb-4 transition-all duration-300">
 
-                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                     <svg class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
 
                 </div>
 
@@ -203,7 +264,7 @@
 
             <div class="md:col-span-2 md:row-span-2 bg-gray-100 rounded-3xl p-8 flex flex-col justify-end relative overflow-hidden">
 
-                <img src="Butter.png" alt="Real Pure & Natural European Butter" class="absolute inset-0 w-full h-full object-cover">
+                <img src="Butter.png" alt="Real Pure & Natural European Butter" class="ingredient-image absolute inset-0 w-full h-full object-cover">
 
                 <div class="relative z-10">
 
@@ -217,7 +278,7 @@
 
             <div class="bg-gray-100 rounded-3xl p-6 flex flex-col justify-end relative overflow-hidden h-64 md:h-auto">
 
-                <img src="Vanilla.png" alt="100% Madagascar Vanilla" class="absolute inset-0 w-full h-full object-cover">
+                <img src="Vanilla.png" alt="100% Madagascar Vanilla" class="ingredient-image absolute inset-0 w-full h-full object-cover">
 
                 <div class="relative z-10">
 
@@ -229,7 +290,7 @@
 
             <div class="bg-gray-100 rounded-3xl p-6 flex flex-col justify-end relative overflow-hidden h-64 md:h-auto">
 
-                <img src="Chocolate.png" alt="Ethically Sourced Chocolate" class="absolute inset-0 w-full h-full object-cover">
+                <img src="Chocolate.png" alt="Ethically Sourced Chocolate" class="ingredient-image absolute inset-0 w-full h-full object-cover">
 
                 <div class="relative z-10">
 
@@ -351,7 +412,7 @@
 
             <p class="text-gray-400 mb-4">Dessert Hub® - The B2B Dessert Partner</p>
 
-            <a href="#" class="text-black font-bold text-lg underline">Start Your Trial</a>
+            <a href="#" class="text-black font-bold text-lg underline hover:text-gray-700 hover:translate-y-[-2px] transition-all duration-300">Start Your Trial</a>
 
         </div>
 
