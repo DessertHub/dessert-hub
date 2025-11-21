@@ -113,12 +113,21 @@
             width: 100%;
             height: 100%;
             opacity: 0;
-            transition: opacity 1s ease-in-out;
+            transition: opacity 1.5s ease-in-out;
+            z-index: 1;
         }
 
         .carousel-slide.active {
             opacity: 1;
             position: relative;
+            z-index: 2;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .carousel-dots {
@@ -246,13 +255,13 @@
 
             <!-- Carousel slides -->
             <div class="carousel-slide active">
-                <img src="hero-image.jpg" alt="Chocolate chip cookies with nuts on dark surface" class="absolute inset-0 w-full h-full object-cover">
+                <img src="hero-image.jpg" alt="Chocolate chip cookies with nuts on dark surface" loading="eager">
             </div>
             <div class="carousel-slide">
-                <img src="Caribbean Spice Cake.jpeg" alt="Caribbean Spice Cake" class="absolute inset-0 w-full h-full object-cover">
+                <img src="Caribbean Spice Cake.jpeg" alt="Caribbean Spice Cake" loading="eager">
             </div>
             <div class="carousel-slide">
-                <img src="Cinnamon Roll.jpeg" alt="Cinnamon Roll" class="absolute inset-0 w-full h-full object-cover">
+                <img src="Cinnamon Roll.jpeg" alt="Cinnamon Roll" loading="eager">
             </div>
 
             <!-- Carousel navigation dots -->
@@ -638,7 +647,7 @@
             }
 
             function startCarousel() {
-                carouselInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+                carouselInterval = setInterval(nextSlide, 8000); // Change slide every 8 seconds
             }
 
             function stopCarousel() {
