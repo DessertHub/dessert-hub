@@ -68,6 +68,17 @@
             }
         }
 
+        @keyframes imageFadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
         @keyframes iconPulse {
             0%, 100% {
                 transform: scale(1);
@@ -85,14 +96,22 @@
             animation: fadeInUp 0.6s ease-out forwards;
         }
 
+        .image-entrance {
+            animation: imageFadeInScale 0.8s ease-out forwards;
+        }
+
         /* Smooth hover transitions for all interactive elements */
-        button, a, img {
+        button, a {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Image hover effects - will combine with parallax */
+        img {
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease;
+        }
+
+        /* Image hover effects - more pronounced */
         img:not(.parallax-slow):not(.parallax-medium):not(.parallax-fast):hover {
-            transform: scale(1.02);
+            transform: scale(1.08);
         }
 
         /* Icon hover effects */
@@ -105,9 +124,10 @@
             transform: scale(1.1);
         }
 
-        /* Ingredient image hover - parallax images handled in JS */
+        /* Ingredient image hover - more pronounced */
         .ingredient-image:not(.parallax-slow):not(.parallax-medium):not(.parallax-fast):hover {
-            transform: scale(1.05);
+            transform: scale(1.12);
+            filter: brightness(1.05);
         }
 
         /* Navigation link hover */
@@ -177,7 +197,7 @@
 
         <div class="relative w-full rounded-3xl overflow-hidden min-h-[600px] md:min-h-[700px] flex items-center">
 
-            <img src="hero-image.jpg" alt="Chocolate chip cookies with nuts on dark surface" class="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="eager">
+            <img src="hero-image.jpg" alt="Chocolate chip cookies with nuts on dark surface" class="image-entrance absolute inset-0 w-full h-full object-cover hover:scale-110 transition-transform duration-500 ease-out" loading="eager" style="opacity: 0;">
 
             <!-- Gradient overlay for headline contrast -->
             <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent z-0"></div>
@@ -305,7 +325,7 @@
 
             <div class="md:col-span-2 md:row-span-2 bg-cream rounded-3xl p-10 flex flex-col justify-end relative overflow-hidden">
 
-                <img src="Butter.png" alt="Real Pure & Natural European Butter" class="ingredient-image absolute inset-0 w-full h-full object-cover">
+                <img src="Butter.png" alt="Real Pure & Natural European Butter" class="image-entrance ingredient-image absolute inset-0 w-full h-full object-cover" style="opacity: 0; animation-delay: 0.2s;">
 
                 <div class="relative z-10">
 
@@ -319,7 +339,7 @@
 
             <div class="bg-cream rounded-3xl p-8 flex flex-col justify-end relative overflow-hidden h-64 md:h-auto">
 
-                <img src="Vanilla.png" alt="100% Madagascar Vanilla" class="ingredient-image absolute inset-0 w-full h-full object-cover">
+                <img src="Vanilla.png" alt="100% Madagascar Vanilla" class="image-entrance ingredient-image absolute inset-0 w-full h-full object-cover" style="opacity: 0; animation-delay: 0.3s;">
 
                 <div class="relative z-10">
 
@@ -331,7 +351,7 @@
 
             <div class="bg-cream rounded-3xl p-8 flex flex-col justify-end relative overflow-hidden h-64 md:h-auto">
 
-                <img src="Chocolate.png" alt="Ethically Sourced Chocolate" class="ingredient-image absolute inset-0 w-full h-full object-cover">
+                <img src="Chocolate.png" alt="Ethically Sourced Chocolate" class="image-entrance ingredient-image absolute inset-0 w-full h-full object-cover" style="opacity: 0; animation-delay: 0.4s;">
 
                 <div class="relative z-10">
 
