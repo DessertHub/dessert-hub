@@ -22,7 +22,28 @@
 
         body { 
             font-family: 'Inter', sans-serif; 
-            -webkit-font-smoothing: antialiased; 
+            -webkit-font-smoothing: antialiased;
+            background-color: #faf9f6;
+        }
+
+        .bg-ivory {
+            background-color: #faf9f6;
+        }
+
+        .bg-cream {
+            background-color: #f5f3f0;
+        }
+
+        .bg-pastel-pink {
+            background-color: #f8e8e8;
+        }
+
+        .bg-pastel-blue {
+            background-color: #e8f0f8;
+        }
+
+        .bg-pastel-yellow {
+            background-color: #faf5e8;
         }
 
         @keyframes slideInFromLeft {
@@ -98,11 +119,11 @@
 
 </head>
 
-<body class="bg-white text-gray-900">
+<body class="bg-ivory text-gray-900">
 
 
 
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
+    <nav class="fixed w-full z-50 bg-ivory/95 backdrop-blur-md border-b border-gray-100">
 
         <div class="max-w-7xl mx-auto px-6 h-28 flex items-center justify-between">
 
@@ -132,7 +153,7 @@
 
 
 
-    <section class="pt-40 pb-20 px-6">
+    <section class="pt-40 pb-32 px-6">
 
         <div class="relative w-full rounded-3xl overflow-hidden min-h-[600px] md:min-h-[700px] flex items-center">
 
@@ -141,7 +162,7 @@
             <!-- Gradient overlay for headline contrast -->
             <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent z-0"></div>
 
-            <div class="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-12 py-16">
+            <div class="relative z-10 max-w-7xl mx-auto w-full px-8 md:px-16 py-20">
 
                 <div class="max-w-2xl space-y-6">
 
@@ -196,13 +217,13 @@
 
 
 
-    <section class="py-20 bg-gray-50">
+    <section class="py-32 bg-ivory">
 
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-12 text-center">
+            <div class="max-w-7xl mx-auto px-8 grid md:grid-cols-3 gap-16 text-center">
 
             <div class="space-y-4 fade-in-up" style="animation-delay: 0.1s; opacity: 0;">
 
-                <div class="icon-container w-12 h-12 bg-black rounded-xl mx-auto flex items-center justify-center text-white mb-4 transition-all duration-300">
+                <div class="icon-container w-12 h-12 bg-pastel-pink rounded-xl mx-auto flex items-center justify-center text-gray-800 mb-4 transition-all duration-300">
 
                     <svg class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
 
@@ -216,7 +237,7 @@
 
             <div class="space-y-4 fade-in-up" style="animation-delay: 0.2s; opacity: 0;">
 
-                <div class="icon-container w-12 h-12 bg-black rounded-xl mx-auto flex items-center justify-center text-white mb-4 transition-all duration-300">
+                <div class="icon-container w-12 h-12 bg-pastel-blue rounded-xl mx-auto flex items-center justify-center text-gray-800 mb-4 transition-all duration-300">
 
                      <svg class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
 
@@ -230,7 +251,7 @@
 
             <div class="space-y-4 fade-in-up" style="animation-delay: 0.3s; opacity: 0;">
 
-                <div class="icon-container w-12 h-12 bg-black rounded-xl mx-auto flex items-center justify-center text-white mb-4 transition-all duration-300">
+                <div class="icon-container w-12 h-12 bg-pastel-yellow rounded-xl mx-auto flex items-center justify-center text-gray-800 mb-4 transition-all duration-300">
 
                      <svg class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
 
@@ -248,9 +269,9 @@
 
 
 
-    <section class="py-24 px-6 max-w-7xl mx-auto">
+    <section class="py-32 px-6 max-w-7xl mx-auto bg-white">
 
-        <div class="text-center mb-16">
+        <div class="text-center mb-20">
 
             <h2 class="text-4xl font-bold mb-4">Sourced like a Michelin Kitchen.</h2>
 
@@ -262,7 +283,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 h-auto md:h-[600px]">
 
-            <div class="md:col-span-2 md:row-span-2 bg-gray-100 rounded-3xl p-8 flex flex-col justify-end relative overflow-hidden">
+            <div class="md:col-span-2 md:row-span-2 bg-cream rounded-3xl p-10 flex flex-col justify-end relative overflow-hidden">
 
                 <img src="Butter.png" alt="Real Pure & Natural European Butter" class="ingredient-image absolute inset-0 w-full h-full object-cover">
 
@@ -276,7 +297,7 @@
 
             </div>
 
-            <div class="bg-gray-100 rounded-3xl p-6 flex flex-col justify-end relative overflow-hidden h-64 md:h-auto">
+            <div class="bg-cream rounded-3xl p-8 flex flex-col justify-end relative overflow-hidden h-64 md:h-auto">
 
                 <img src="Vanilla.png" alt="100% Madagascar Vanilla" class="ingredient-image absolute inset-0 w-full h-full object-cover">
 
@@ -288,7 +309,7 @@
 
             </div>
 
-            <div class="bg-gray-100 rounded-3xl p-6 flex flex-col justify-end relative overflow-hidden h-64 md:h-auto">
+            <div class="bg-cream rounded-3xl p-8 flex flex-col justify-end relative overflow-hidden h-64 md:h-auto">
 
                 <img src="Chocolate.png" alt="Ethically Sourced Chocolate" class="ingredient-image absolute inset-0 w-full h-full object-cover">
 
@@ -304,19 +325,19 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
 
-             <div class="bg-gray-50 rounded-3xl p-6 text-center py-12">
+             <div class="bg-cream rounded-3xl p-8 text-center py-16">
 
                 <h4 class="font-bold text-gray-900">Cage Free Eggs</h4>
 
              </div>
 
-             <div class="bg-gray-50 rounded-3xl p-6 text-center py-12">
+             <div class="bg-cream rounded-3xl p-8 text-center py-16">
 
                 <h4 class="font-bold text-gray-900">Non-GMO Cane Sugar</h4>
 
              </div>
 
-             <div class="bg-gray-50 rounded-3xl p-6 text-center py-12">
+             <div class="bg-cream rounded-3xl p-8 text-center py-16">
 
                 <h4 class="font-bold text-gray-900">Artisan Pastry Flour</h4>
 
@@ -328,35 +349,35 @@
 
 
 
-    <section class="py-24 bg-black text-white">
+    <section class="py-32 bg-cream">
 
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+        <div class="max-w-7xl mx-auto px-8 grid md:grid-cols-2 gap-20 items-center">
 
-            <div>
+            <div class="space-y-8">
 
-                <h2 class="text-4xl font-bold mb-6">Unburden the Artist. <br>Showcase the Craft.</h2>
+                <h2 class="text-4xl font-bold mb-6 text-black">Unburden the Artist. <br>Showcase the Craft.</h2>
 
-                <p class="text-gray-400 text-lg mb-8">
+                <p class="text-gray-600 text-lg mb-8 leading-relaxed">
 
                     Instead of forcing you to choose between labor-heavy in-house pastry or soulless big-box frozen, we plug in a solution that fits your concept.
 
                 </p>
 
-                <ul class="space-y-4">
+                <ul class="space-y-6">
 
-                    <li class="flex items-center border-b border-gray-800 pb-4">
+                    <li class="flex items-center border-b border-gray-200 pb-6">
 
-                        <span class="w-32 text-gray-500">The Old Way</span>
+                        <span class="w-32 text-gray-500 font-medium">The Old Way</span>
 
-                        <span>High Labor, High Waste, Inconsistent</span>
+                        <span class="text-gray-800">High Labor, High Waste, Inconsistent</span>
 
                     </li>
 
-                    <li class="flex items-center border-b border-gray-800 pb-4">
+                    <li class="flex items-center border-b border-gray-200 pb-6">
 
-                        <span class="w-32 text-green-400">Dessert Hub</span>
+                        <span class="w-32 text-green-600 font-semibold">Dessert Hub</span>
 
-                        <span>Pre-Portioned, Zero Waste, High Margin</span>
+                        <span class="text-gray-800">Pre-Portioned, Zero Waste, High Margin</span>
 
                     </li>
 
@@ -364,13 +385,13 @@
 
             </div>
 
-            <div class="bg-gray-900 rounded-3xl p-10 border border-gray-800">
+            <div class="bg-white rounded-3xl p-12 border border-gray-100 shadow-lg">
 
-                <h3 class="text-2xl font-bold mb-8 text-center">Typical Margin Breakdown</h3>
+                <h3 class="text-2xl font-bold mb-10 text-center text-black">Typical Margin Breakdown</h3>
 
-                <div class="space-y-6">
+                <div class="space-y-8">
 
-                    <div class="flex justify-between text-sm text-gray-400 uppercase tracking-wider">
+                    <div class="flex justify-between text-sm text-gray-500 uppercase tracking-wider">
 
                         <span>Cost to You</span>
 
@@ -380,19 +401,19 @@
 
                     <div class="flex justify-between items-end">
 
-                        <span class="text-4xl font-bold text-gray-500">$1.75</span>
+                        <span class="text-4xl font-bold text-gray-400">$1.75</span>
 
-                        <div class="h-px bg-gray-700 flex-1 mx-4 mb-4"></div>
+                        <div class="h-px bg-gray-200 flex-1 mx-4 mb-4"></div>
 
-                        <span class="text-4xl font-bold text-white">$6.00</span>
+                        <span class="text-4xl font-bold text-black">$6.00</span>
 
                     </div>
 
-                    <div class="mt-8 pt-8 border-t border-gray-800 text-center">
+                    <div class="mt-10 pt-10 border-t border-gray-200 text-center">
 
-                        <span class="block text-sm text-green-400 mb-1">Gross Profit Per Unit</span>
+                        <span class="block text-sm text-green-600 mb-2 font-medium">Gross Profit Per Unit</span>
 
-                        <span class="text-5xl font-bold text-green-500">$4.25</span>
+                        <span class="text-5xl font-bold text-green-600">$4.25</span>
 
                     </div>
 
@@ -406,9 +427,9 @@
 
 
 
-    <footer class="bg-white py-12 border-t border-gray-200">
+    <footer class="bg-ivory py-16 border-t border-gray-100">
 
-        <div class="max-w-7xl mx-auto px-6 text-center">
+        <div class="max-w-7xl mx-auto px-8 text-center">
 
             <p class="text-gray-400 mb-4">Dessert Hub® - The B2B Dessert Partner</p>
 
