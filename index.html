@@ -18,6 +18,21 @@
 
         body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
 
+        @keyframes slideInFromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .slide-in {
+            animation: slideInFromLeft 0.8s ease-out forwards;
+        }
+
     </style>
 
 </head>
@@ -60,19 +75,33 @@
 
         <div class="relative w-full rounded-3xl overflow-hidden min-h-[600px] md:min-h-[700px] flex items-center">
 
-            <img src="hero-image.jpg" alt="Chocolate chip cookies with nuts on dark surface" class="absolute inset-0 w-full h-full object-cover">
+            <img src="hero-image.jpg" alt="Chocolate chip cookies with nuts on dark surface" class="absolute inset-0 w-full h-full object-cover" loading="eager">
+
+            <!-- Gradient overlay for headline contrast -->
+            <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent z-0"></div>
 
             <div class="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-12 py-16">
 
                 <div class="max-w-2xl space-y-6">
 
-                    <h1 class="text-6xl md:text-7xl font-extrabold tracking-tight leading-tight text-white drop-shadow-lg">
+                    <!-- Animated tagline badge -->
+                    <div class="slide-in opacity-0 inline-block">
+                        <div class="bg-white/95 backdrop-blur-sm text-black px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
+                            Bars · Breweries · Cafés · Theaters · Hotels
+                        </div>
+                    </div>
 
-                        Stacked on Flavor. <br>
+                    <!-- Headline with gradient background -->
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent rounded-lg -mx-4 -my-2 blur-sm"></div>
+                        <h1 class="relative text-6xl md:text-7xl font-extrabold tracking-tight leading-tight text-white drop-shadow-lg">
 
-                        <span class="text-gray-200">Thin on Labor.</span>
+                            Stacked on Flavor. <br>
 
-                    </h1>
+                            <span class="text-gray-200">Thin on Labor.</span>
+
+                        </h1>
+                    </div>
 
                     <p class="text-xl text-white leading-relaxed max-w-lg drop-shadow-md">
 
