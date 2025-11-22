@@ -361,3 +361,75 @@ nav a:not(.bg-black):hover {
     outline: 3px solid var(--gold);
     outline-offset: 2px;
 }
+
+/* Sweet Numbers Section */
+.sweet-numbers-card {
+    border-left: 12px solid #E94E77;
+    /* Pink accent */
+    border-top: 12px solid #E94E77;
+    padding: 2rem;
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sweet-stat-number {
+    font-family: 'Fraunces', serif;
+    font-size: 8rem;
+    line-height: 1;
+    color: #D99A88;
+    /* Pinkish Tan */
+}
+
+.sweet-stat-number-alt {
+    font-family: 'Fraunces', serif;
+    font-size: 8rem;
+    line-height: 1;
+    color: #D99A88;
+}
+
+/* Custom Arrow Graphics */
+.arrow-graphic {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+.arrow-path {
+    fill: none;
+    stroke-width: 12;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Product Grid */
+.product-card {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.product-image-default,
+.product-image-hover {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.product-image-hover {
+    opacity: 0;
+}
+
+.product-card:hover .product-image-default {
+    opacity: 0;
+}
+
+.product-card:hover .product-image-hover {
+    opacity: 1;
+}
