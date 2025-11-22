@@ -141,6 +141,20 @@
             object-position: center left;
         }
 
+        /* Mobile adjustments - zoom out images to show more of the product */
+        @media (max-width: 768px) {
+            .carousel-slide img {
+                object-fit: contain;
+                object-position: center;
+                background-color: #f5f3f0;
+            }
+
+            .carousel-slide:nth-child(2) img {
+                /* Caribbean Spice Cake - center on mobile */
+                object-position: center;
+            }
+        }
+
         .carousel-dots {
             position: absolute;
             bottom: 20px;
