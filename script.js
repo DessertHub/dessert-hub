@@ -162,35 +162,57 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Margin Calculator
 document.addEventListener('DOMContentLoaded', function () {
-    const unitsInput = document.getElementById('units-sold');
-    const unitsDisplay = document.getElementById('units-display');
+    const costInput = document.getElementById('cost-input');
+    const priceInput = document.getElementById('price-input');
+    const volumeSlider = document.getElementById('volume-slider');
+    const volumeDisplay = document.getElementById('volume-display');
     const weeklyProfitDisplay = document.getElementById('weekly-profit');
     const yearlyProfitDisplay = document.getElementById('yearly-profit');
 
-    const PROFIT_PER_UNIT = 4.05;
+    // Elements for static display updates
+    const costDisplay = document.querySelector('.text-4xl.font-bold.text-gray-400'); // $1.95
+    const priceDisplay = document.querySelector('.text-4xl.font-bold.text-black'); // $6.00
 
     function updateCalculator() {
-        const units = parseInt(unitsInput.value);
-        const weeklyProfit = units * PROFIT_PER_UNIT;
+        const cost = parseFloat(costInput.value) || 0;
+        const price = parseFloat(priceInput.value) || 0;
+        const volume = parseInt(volumeSlider.value) || 0;
+
+        const profitPerUnit = price - cost;
+        const weeklyProfit = volume * profitPerUnit;
         const yearlyProfit = weeklyProfit * 52;
 
-        // Animate numbers (simple version)
-        unitsDisplay.textContent = units;
+        // Update volume display
+        volumeDisplay.textContent = volume;
 
         // Format currency
-        const formatter = new Intl.NumberFormat('en-US', {
+        const currencyFormatter = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD',
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+        });
+
+        const profitFormatter = new Intl.NumberFormat('en-US', {
             style: 'currency',
             currency: 'USD',
             minimumFractionDigits: 0,
             maximumFractionDigits: 0,
         });
 
-        weeklyProfitDisplay.textContent = formatter.format(weeklyProfit);
-        yearlyProfitDisplay.textContent = formatter.format(yearlyProfit);
+        // Update displays
+        if (costDisplay) costDisplay.textContent = currencyFormatter.format(cost);
+        if (priceDisplay) priceDisplay.textContent = currencyFormatter.format(price);
+
+        weeklyProfitDisplay.textContent = profitFormatter.format(weeklyProfit);
+        yearlyProfitDisplay.textContent = profitFormatter.format(yearlyProfit);
     }
 
-    if (unitsInput) {
-        unitsInput.addEventListener('input', updateCalculator);
+    if (volumeSlider && costInput && priceInput) {
+        volumeSlider.addEventListener('input', updateCalculator);
+        costInput.addEventListener('input', updateCalculator);
+        priceInput.addEventListener('input', updateCalculator);
+
         // Initial calculation
         updateCalculator();
     }
