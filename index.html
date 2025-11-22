@@ -136,6 +136,18 @@
             will-change: opacity;
         }
 
+        .carousel-slide:nth-child(2) img {
+            /* Caribbean Spice Cake - adjust to avoid purple line on right */
+            object-position: center left;
+        }
+
+        .carousel-slide:nth-child(3) img {
+            /* Cinnamon Roll - zoom out to show full product */
+            object-fit: contain;
+            object-position: center;
+            background-color: #f5f3f0;
+        }
+
         .carousel-dots {
             position: absolute;
             bottom: 20px;
