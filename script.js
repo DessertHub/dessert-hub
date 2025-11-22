@@ -1,7 +1,7 @@
 // Subtle parallax effect on scroll
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const parallaxElements = document.querySelectorAll('.parallax-slow, .parallax-medium, .parallax-fast');
-    
+
     // Parallax speed multipliers (lower = slower movement, more subtle)
     const speeds = {
         'parallax-slow': 0.2,
@@ -12,22 +12,22 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateParallax() {
         const scrollY = window.pageYOffset;
         const windowHeight = window.innerHeight;
-        
+
         parallaxElements.forEach(element => {
             const className = Array.from(element.classList).find(cls => cls.startsWith('parallax-'));
             const speed = speeds[className] || 0.3;
             const rect = element.getBoundingClientRect();
             const elementTop = rect.top + scrollY;
-            
+
             // Only apply parallax when element is in or near viewport
             if (rect.bottom >= -windowHeight && rect.top <= windowHeight * 2) {
                 // Calculate parallax based on scroll position
                 const scrolled = scrollY - (elementTop - windowHeight);
                 const translateY = scrolled * speed * 0.12; // Very subtle multiplier
-                
+
                 // Store parallax value in data attribute
                 element.dataset.parallaxY = translateY;
-                
+
                 // Apply transform - will combine with hover scale via CSS
                 element.style.setProperty('--parallax-translate', `${translateY}px`);
             }
@@ -53,9 +53,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Throttle scroll events for performance
     let ticking = false;
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
         if (!ticking) {
-            window.requestAnimationFrame(function() {
+            window.requestAnimationFrame(function () {
                 updateParallax();
                 ticking = false;
             });
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Hero carousel functionality
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const slides = document.querySelectorAll('.carousel-slide');
     const dots = document.querySelectorAll('.carousel-dot');
     let currentSlide = 0;
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function showSlide(index) {
         if (isTransitioning || index === currentSlide) return;
-        
+
         isTransitioning = true;
 
         // Remove active class from current slide and dot
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add active class to new slide and dot
         slides[index].classList.add('active');
         dots[index].classList.add('active');
-        
+
         currentSlide = index;
 
         // Reset transition flag after transition completes
@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Preload images and start carousel
     const images = document.querySelectorAll('.carousel-slide img');
     let loadedCount = 0;
-    
+
     const checkAllLoaded = () => {
         if (loadedCount === images.length) {
             // Ensure first slide is visible
@@ -158,4 +158,91 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     });
+});
+
+// Margin Calculator
+document.addEventListener('DOMContentLoaded', function () {
+    const unitsInput = document.getElementById('units-sold');
+    const unitsDisplay = document.getElementById('units-display');
+    const weeklyProfitDisplay = document.getElementById('weekly-profit');
+    const yearlyProfitDisplay = document.getElementById('yearly-profit');
+
+    const PROFIT_PER_UNIT = 4.05;
+
+    function updateCalculator() {
+        const units = parseInt(unitsInput.value);
+        const weeklyProfit = units * PROFIT_PER_UNIT;
+        const yearlyProfit = weeklyProfit * 52;
+
+        // Animate numbers (simple version)
+        unitsDisplay.textContent = units;
+
+        // Format currency
+        const formatter = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD',
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0,
+        });
+
+        weeklyProfitDisplay.textContent = formatter.format(weeklyProfit);
+        yearlyProfitDisplay.textContent = formatter.format(yearlyProfit);
+    }
+
+    if (unitsInput) {
+        unitsInput.addEventListener('input', updateCalculator);
+        // Initial calculation
+        updateCalculator();
+    }
+});
+
+// FAQ Accordion
+document.addEventListener('DOMContentLoaded', function () {
+    const faqItems = document.querySelectorAll('.faq-item button');
+
+    faqItems.forEach(button => {
+        button.addEventListener('click', () => {
+            const content = button.nextElementSibling;
+            const isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+            // Close all other items
+            faqItems.forEach(otherButton => {
+                if (otherButton !== button) {
+                    otherButton.setAttribute('aria-expanded', 'false');
+                    otherButton.nextElementSibling.style.maxHeight = null;
+                }
+            });
+
+            // Toggle current item
+            button.setAttribute('aria-expanded', !isExpanded);
+            if (!isExpanded) {
+                content.style.maxHeight = content.scrollHeight + "px";
+            } else {
+                content.style.maxHeight = null;
+            }
+        });
+    });
+});
+
+// Mobile Menu Toggle
+document.addEventListener('DOMContentLoaded', function () {
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+            const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+            mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close menu when clicking a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            });
+        });
+    }
 });

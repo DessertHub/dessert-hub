@@ -13,9 +13,13 @@
         content="Dessert Hub provides gourmet, pre-portioned desserts for high-volume venues. Zero prep, high margin, and consistent quality.">
     <meta name="keywords" content="B2B desserts, wholesale desserts, restaurant desserts, food service desserts">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
 
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 
 </head>
 
@@ -29,9 +33,11 @@
 
             <div class="flex items-center">
                 <div class="bg-white/60 backdrop-blur-md rounded-lg p-2 border border-white/30 logo-container">
-                    <img src="Dessert Hub.png" alt="Dessert Hub"
-                        class="w-auto hover:scale-105 transition-transform duration-300 cursor-pointer"
-                        style="height: 120px;">
+                    <a href="#" aria-label="Return to Home">
+                        <img src="Dessert Hub.png" alt="Dessert Hub"
+                            class="w-auto hover:scale-105 transition-transform duration-300 cursor-pointer"
+                            style="height: 120px;">
+                    </a>
                 </div>
             </div>
 
@@ -57,23 +63,57 @@
 
             </div>
 
-            <a href="https://calendar.app.google/ku72zjP55xUYKa4eA" target="_blank" rel="noopener noreferrer"
-                class="bg-black text-white text-base font-bold px-8 py-3 rounded-lg hover:bg-gray-800 hover:scale-105 hover:shadow-xl transition-all duration-300 shadow-lg">
+            <div class="flex items-center gap-4">
+                <a href="https://calendar.app.google/ku72zjP55xUYKa4eA" target="_blank" rel="noopener noreferrer"
+                    class="hidden md:inline-block bg-black text-white text-base font-bold px-8 py-3 rounded-lg hover:bg-gray-800 hover:scale-105 hover:shadow-xl transition-all duration-300 shadow-lg">
+                    Book a Tasting
+                </a>
 
-                Book a Tasting
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden p-2 text-gray-800 focus:outline-none"
+                    aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
 
-            </a>
+        </div>
 
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden lg:hidden bg-ivory border-t border-gray-100 absolute w-full left-0 top-36 p-6 shadow-xl z-40">
+            <div class="flex flex-col space-y-4">
+                <a href="#who-we-serve" class="text-lg font-medium text-gray-800 py-2 border-b border-gray-100">Who We
+                    Serve</a>
+                <a href="#programs" class="text-lg font-medium text-gray-800 py-2 border-b border-gray-100">Programs</a>
+                <a href="#margins" class="text-lg font-medium text-gray-800 py-2 border-b border-gray-100">Margins &
+                    Ops</a>
+                <a href="#ingredients"
+                    class="text-lg font-medium text-gray-800 py-2 border-b border-gray-100">Ingredients</a>
+                <a href="#our-story" class="text-lg font-medium text-gray-800 py-2 border-b border-gray-100">Our
+                    Story</a>
+                <a href="https://calendar.app.google/ku72zjP55xUYKa4eA" target="_blank" rel="noopener noreferrer"
+                    class="bg-black text-white text-center font-bold px-6 py-3 rounded-lg hover:bg-gray-800 transition-all duration-300 shadow-lg mt-4">
+                    Book a Tasting
+                </a>
+            </div>
         </div>
 
     </nav>
 
 
 
-    <section class="pt-48 pb-40 px-6">
+    <section class="pt-48 pb-40 px-6 theme-midnight relative">
+
+        <!-- Background texture overlay -->
+        <div
+            class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20 pointer-events-none z-0">
+        </div>
 
         <div
-            class="relative w-full rounded-3xl overflow-hidden min-h-[600px] md:min-h-[700px] flex items-center carousel-container">
+            class="relative w-full rounded-3xl overflow-hidden min-h-[600px] md:min-h-[700px] flex items-center carousel-container border border-white/10 shadow-2xl">
 
             <!-- Carousel slides -->
             <div class="carousel-slide active">
@@ -94,57 +134,54 @@
             </div>
 
             <!-- Gradient overlay for headline contrast -->
-            <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent z-0"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent z-0"></div>
 
             <div class="relative z-10 max-w-7xl mx-auto w-full px-8 md:px-16 py-20">
 
-                <div class="max-w-2xl space-y-6">
+                <div class="max-w-3xl space-y-8">
 
                     <!-- Animated tagline badge -->
                     <div class="slide-in opacity-0 inline-block">
                         <div
-                            class="bg-white/60 backdrop-blur-md text-black px-4 py-2 rounded-lg text-sm font-semibold shadow-lg border border-white/30">
+                            class="bg-white/10 backdrop-blur-md text-gold px-4 py-2 rounded-lg text-sm font-semibold shadow-lg border border-white/20 tracking-wider uppercase">
                             Restaurants · Bars · Venues
                         </div>
                     </div>
 
                     <!-- Headline with gradient background -->
                     <div class="relative">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent rounded-lg -mx-4 -my-2 blur-sm">
-                        </div>
                         <h1
-                            class="relative text-7xl md:text-8xl font-extrabold tracking-tight leading-tight text-white drop-shadow-lg hero-headline">
+                            class="relative text-6xl md:text-8xl font-bold tracking-tight leading-tight text-white drop-shadow-lg hero-headline">
 
-                            All the Craft. <br>
+                            The Pastry Chef <br>
 
-                            <span class="text-gray-200">None of the Chaos.</span>
+                            <span class="text-gold italic">You Don't Have to Manage.</span>
 
                         </h1>
                     </div>
 
-                    <p class="text-xl text-green-200 leading-relaxed max-w-lg drop-shadow-md hero-description">
+                    <p
+                        class="text-xl text-gray-300 leading-relaxed max-w-lg drop-shadow-md hero-description font-light">
 
-                        Deploy a gourmet dessert menu instantly. Consistent quality, predictable costs, and effortless
-                        execution for high-volume venues.
+                        We do the hard work in the dark, so you can shine in the dining room. Consistent quality,
+                        predictable costs, and zero drama.
 
                     </p>
 
-                    <div class="flex space-x-4 pt-4">
+                    <div class="flex space-x-4 pt-6">
 
-                        <button
-                            class="bg-black text-white px-8 py-4 rounded-lg font-semibold text-lg hover:scale-105 hover:shadow-xl transition-all duration-300 shadow-lg">
+                        <a href="#calculator"
+                            class="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-bold py-4 px-8 rounded-lg text-lg hover:scale-105 transition transform shadow-lg hover:shadow-yellow-500/50"
+                            aria-label="Get Started with Dessert Hub">
+                            Get Started
+                        </a>
 
-                            Start a Trial
-
-                        </button>
-
-                        <button
-                            class="bg-white/90 backdrop-blur-sm text-black px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:scale-105 hover:shadow-xl transition-all duration-300 shadow-lg">
+                        <a href="#margins"
+                            class="bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white/20 hover:scale-105 hover:shadow-xl transition-all duration-300 shadow-lg border border-white/30 inline-block text-center">
 
                             See the Margins
 
-                        </button>
+                        </a>
 
                     </div>
 
@@ -158,7 +195,60 @@
 
 
 
-    <section class="py-40 bg-ivory">
+
+    <section id="who-we-serve" class="py-32 bg-cream">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-black">Built for <span class="text-gold italic">High
+                        Volume.</span></h2>
+                <p class="text-gray-500 text-lg max-w-2xl mx-auto">We specialize in venues where consistency and speed
+                    are non-negotiable.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div
+                    class="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 hover:-translate-y-2 transition-transform duration-300">
+                    <div class="h-48 rounded-2xl bg-gray-100 mb-6 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Restaurant Interior" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/20"></div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Restaurants & Chains</h3>
+                    <p class="text-gray-600">Standardize your dessert menu across multiple locations without hiring a
+                        pastry chef for each one.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div
+                    class="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 hover:-translate-y-2 transition-transform duration-300">
+                    <div class="h-48 rounded-2xl bg-gray-100 mb-6 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Hotel Lobby" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/20"></div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Hotels & Resorts</h3>
+                    <p class="text-gray-600">24/7 room service and banquet operations require desserts that hold up and
+                        taste fresh, every time.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div
+                    class="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 hover:-translate-y-2 transition-transform duration-300">
+                    <div class="h-48 rounded-2xl bg-gray-100 mb-6 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1481277542470-60561ff957f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Event Venue" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/20"></div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Theaters & Venues</h3>
+                    <p class="text-gray-600">High-margin items that can be served in seconds during intermission rushes.
+                        Speed is everything.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="programs" class="py-40 bg-ivory">
 
         <div class="max-w-7xl mx-auto px-8 grid md:grid-cols-3 gap-16 text-center">
 
@@ -185,7 +275,7 @@
             <div class="space-y-4 fade-in-up" style="animation-delay: 0.2s; opacity: 0;">
 
                 <div
-                    class="icon-container w-12 h-12 bg-pastel-blue rounded-xl mx-auto flex items-center justify-center text-gray-800 mb-4 transition-all duration-300">
+                    class="icon-container w-12 h-12 bg-pastel-blue rounded-xl mx-auto flex items-center justify-center text-white mb-4 transition-all duration-300">
 
                     <svg class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor"
                         viewBox="0 0 24 24">
@@ -228,94 +318,108 @@
 
 
 
-    <section class="py-40 px-6 max-w-7xl mx-auto bg-white">
+    <section id="ingredients"
+        class="py-40 px-6 max-w-7xl mx-auto theme-midnight rounded-3xl my-20 relative overflow-hidden">
 
-        <div class="text-center mb-20">
-
-            <h2 class="text-4xl font-bold mb-4">Sourced like a Michelin Kitchen.</h2>
-
-            <p class="text-gray-500">We honor the craftsman by starting with ingredients they would respect.</p>
-
+        <!-- Background texture -->
+        <div
+            class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 pointer-events-none">
         </div>
 
+        <div class="relative z-10">
+            <div class="text-center mb-20">
+
+                <h2 class="text-5xl font-bold mb-4 text-white">Sourced like a <span class="text-gold italic">Michelin
+                        Kitchen.</span></h2>
+
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">We honor the craftsman by starting with ingredients
+                    they would respect. No shortcuts, no fillers.</p>
+
+            </div>
 
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 h-auto md:h-[600px]">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 h-auto md:h-[600px]">
 
-            <div
-                class="md:col-span-2 md:row-span-2 bg-cream rounded-3xl p-10 flex flex-col justify-end relative overflow-hidden">
+                <div
+                    class="md:col-span-2 md:row-span-2 bg-white/5 border border-white/10 rounded-3xl p-10 flex flex-col justify-end relative overflow-hidden group">
 
-                <img src="Butter.png" alt="Real Pure & Natural European Butter"
-                    class="image-entrance ingredient-image absolute inset-0 w-full h-full object-cover"
-                    style="opacity: 0; animation-delay: 0.2s;">
+                    <img src="Butter.png" alt="Real Pure & Natural European Butter"
+                        class="image-entrance ingredient-image absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+                        style="opacity: 0; animation-delay: 0.2s;">
 
-                <div class="relative z-10">
+                    <div class="relative z-10 bg-black/60 backdrop-blur-sm p-6 rounded-2xl border border-white/10">
 
-                    <h3 class="text-2xl font-bold text-black">Real Pure & Natural European Butter</h3>
+                        <h3 class="text-2xl font-bold text-white">Real Pure & Natural European Butter</h3>
 
-                    <p class="text-gray-600 mt-2">Because fat is flavor. We don't use oil blends.</p>
+                        <p class="text-gray-300 mt-2">Because fat is flavor. We don't use oil blends.</p>
+
+                    </div>
+
+                </div>
+
+                <div
+                    class="bg-white/5 border border-white/10 rounded-3xl p-8 flex flex-col justify-end relative overflow-hidden h-64 md:h-auto group">
+
+                    <img src="Vanilla.png" alt="100% Madagascar Vanilla"
+                        class="image-entrance ingredient-image absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+                        style="opacity: 0; animation-delay: 0.3s;">
+
+                    <div class="relative z-10 bg-black/60 backdrop-blur-sm p-4 rounded-xl border border-white/10">
+
+                        <h3 class="text-lg font-bold text-white">100% Madagascar Vanilla</h3>
+
+                    </div>
+
+                </div>
+
+                <div
+                    class="bg-white/5 border border-white/10 rounded-3xl p-8 flex flex-col justify-end relative overflow-hidden h-64 md:h-auto group">
+
+                    <img src="Chocolate.png" alt="Ethically Sourced Chocolate"
+                        class="image-entrance ingredient-image absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+                        style="opacity: 0; animation-delay: 0.4s;">
+
+                    <div class="relative z-10 bg-black/60 backdrop-blur-sm p-4 rounded-xl border border-white/10">
+
+                        <h3 class="text-lg font-bold text-white">Ethically Sourced Chocolate</h3>
+
+                    </div>
 
                 </div>
 
             </div>
 
-            <div class="bg-cream rounded-3xl p-8 flex flex-col justify-end relative overflow-hidden h-64 md:h-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
 
-                <img src="Vanilla.png" alt="100% Madagascar Vanilla"
-                    class="image-entrance ingredient-image absolute inset-0 w-full h-full object-cover"
-                    style="opacity: 0; animation-delay: 0.3s;">
+                <div
+                    class="bg-white/5 border border-white/10 rounded-3xl p-8 text-center py-12 hover:bg-white/10 transition-colors duration-300">
 
-                <div class="relative z-10">
+                    <h4 class="font-bold text-gold text-xl">Cage Free Eggs</h4>
 
-                    <h3 class="text-lg font-bold text-black">100% Madagascar Vanilla</h3>
+                </div>
+
+                <div
+                    class="bg-white/5 border border-white/10 rounded-3xl p-8 text-center py-12 hover:bg-white/10 transition-colors duration-300">
+
+                    <h4 class="font-bold text-gold text-xl">Non-GMO Cane Sugar</h4>
+
+                </div>
+
+                <div
+                    class="bg-white/5 border border-white/10 rounded-3xl p-8 text-center py-12 hover:bg-white/10 transition-colors duration-300">
+
+                    <h4 class="font-bold text-gold text-xl">Artisan Pastry Flour</h4>
 
                 </div>
 
             </div>
-
-            <div class="bg-cream rounded-3xl p-8 flex flex-col justify-end relative overflow-hidden h-64 md:h-auto">
-
-                <img src="Chocolate.png" alt="Ethically Sourced Chocolate"
-                    class="image-entrance ingredient-image absolute inset-0 w-full h-full object-cover"
-                    style="opacity: 0; animation-delay: 0.4s;">
-
-                <div class="relative z-10">
-
-                    <h3 class="text-lg font-bold text-black">Ethically Sourced Chocolate</h3>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-
-            <div class="bg-cream rounded-3xl p-8 text-center py-16">
-
-                <h4 class="font-bold text-gray-900">Cage Free Eggs</h4>
-
-            </div>
-
-            <div class="bg-cream rounded-3xl p-8 text-center py-16">
-
-                <h4 class="font-bold text-gray-900">Non-GMO Cane Sugar</h4>
-
-            </div>
-
-            <div class="bg-cream rounded-3xl p-8 text-center py-16">
-
-                <h4 class="font-bold text-gray-900">Artisan Pastry Flour</h4>
-
-            </div>
-
         </div>
 
     </section>
 
 
 
-    <section class="py-40 bg-cream">
+    <section id="margins" class="py-40 bg-cream">
 
         <div class="max-w-7xl mx-auto px-8 grid md:grid-cols-2 gap-20 items-center">
 
@@ -352,44 +456,298 @@
 
             </div>
 
-            <div class="bg-white rounded-3xl p-12 border border-gray-100 shadow-lg">
+            <div class="bg-white rounded-3xl p-12 border border-gray-100 shadow-2xl relative overflow-hidden">
 
-                <h3 class="text-2xl font-bold mb-10 text-center text-black">Typical Margin Breakdown</h3>
+                <!-- Calculator Widget -->
+                <div id="calculator" class="mb-6">
+                    <label for="cost-input" class="block text-gray-400 mb-2">Cost per Unit ($)</label>
+                    <input type="number" id="cost-input" value="2.50" step="0.10"
+                        class="w-full bg-gray-800 text-white rounded p-3 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                </div>
+                <div class="mb-6">
+                    <label for="price-input" class="block text-gray-400 mb-2">Selling Price ($)</label>
+                    <input type="number" id="price-input" value="8.00" step="0.50"
+                        class="w-full bg-gray-800 text-white rounded p-3 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                </div>
+                <div class="mb-8">
+                    <label for="volume-slider" class="block text-gray-400 mb-2">Weekly Volume: <span id="volume-display"
+                            class="text-yellow-400 font-bold">100</span></label>
+                    <input type="range" id="volume-slider" min="10" max="1000" value="100"
+                        class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-yellow-500">
+                </div>
 
-                <div class="space-y-8">
+                <div
+                    class="flex justify-between text-sm text-gray-500 uppercase tracking-wider border-b border-gray-100 pb-4">
+                    <span>Cost to You</span>
+                    <span>Menu Price</span>
+                </div>
 
-                    <div class="flex justify-between text-sm text-gray-500 uppercase tracking-wider">
+                <div class="flex justify-between items-end">
+                    <span class="text-4xl font-bold text-gray-400">$1.95</span>
+                    <div class="h-px bg-gray-200 flex-1 mx-4 mb-4"></div>
+                    <span class="text-4xl font-bold text-black">$6.00</span>
+                </div>
 
-                        <span>Cost to You</span>
+                <div class="mt-6 pt-6 border-t border-gray-200 text-center bg-green-50 rounded-xl p-6">
+                    <span class="block text-sm text-green-800 mb-2 font-medium uppercase tracking-wide">Weekly
+                        Gross Profit</span>
+                    <span id="weekly-profit" class="text-6xl font-bold text-green-600 block mb-2">$405</span>
+                    <span class="text-xs text-green-700 font-medium">That's <span id="yearly-profit"
+                            class="font-bold">$21,060</span> per year in pure margin.</span>
+                </div>
 
-                        <span>Menu Price</span>
+            </div>
+        </div>
 
+        </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- Testimonials Section -->
+    <section class="py-40 bg-ivory relative overflow-hidden">
+
+        <!-- Decorative background elements -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+            <div class="absolute top-20 left-10 w-64 h-64 bg-gold/5 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-pastel-pink/20 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-black">Trusted by the <span
+                        class="text-gold italic">Best in the Business.</span></h2>
+                <p class="text-gray-500 text-lg max-w-2xl mx-auto">Join the venues that have transformed their dessert
+                    operations.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                <!-- Testimonial 1 -->
+                <div
+                    class="bg-white/80 backdrop-blur-sm p-10 rounded-3xl border border-gray-100 shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
+                    <div
+                        class="text-gold text-6xl font-serif leading-none mb-6 opacity-30 group-hover:opacity-100 transition-opacity">
+                        "</div>
+                    <p class="text-gray-700 text-lg mb-8 italic leading-relaxed">
+                        We cut our pastry labor costs by 60% in the first month. The quality is indistinguishable from
+                        what we were making in-house.
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gray-200 rounded-full overflow-hidden mr-4">
+                            <img src="https://ui-avatars.com/api/?name=Marcus+R&background=0D8ABC&color=fff"
+                                alt="Marcus R." class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-black">Marcus Reynolds</h4>
+                            <p class="text-sm text-gray-500">Executive Chef, The Grand Hotel</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div
+                    class="bg-white/80 backdrop-blur-sm p-10 rounded-3xl border border-gray-100 shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group relative">
+                    <!-- Featured badge -->
+                    <div
+                        class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gold text-black text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-lg">
+                        Top Partner
                     </div>
 
-                    <div class="flex justify-between items-end">
-
-                        <span class="text-4xl font-bold text-gray-400">$1.95</span>
-
-                        <div class="h-px bg-gray-200 flex-1 mx-4 mb-4"></div>
-
-                        <span class="text-4xl font-bold text-black">$6.00</span>
-
+                    <div
+                        class="text-gold text-6xl font-serif leading-none mb-6 opacity-30 group-hover:opacity-100 transition-opacity">
+                        "</div>
+                    <p class="text-gray-700 text-lg mb-8 italic leading-relaxed">
+                        Finally, a vendor that understands consistency. Every single cake is perfect. No more waste, no
+                        more headaches.
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gray-200 rounded-full overflow-hidden mr-4">
+                            <img src="https://ui-avatars.com/api/?name=Sarah+J&background=D4AF37&color=000"
+                                alt="Sarah J." class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-black">Sarah Jenkins</h4>
+                            <p class="text-sm text-gray-500">Owner, Bistro 42</p>
+                        </div>
                     </div>
+                </div>
 
-                    <div class="mt-10 pt-10 border-t border-gray-200 text-center">
-
-                        <span class="block text-sm text-green-600 mb-2 font-medium">Gross Profit Per Unit</span>
-
-                        <span class="text-5xl font-bold text-green-600">$4.05</span>
-
+                <!-- Testimonial 3 -->
+                <div
+                    class="bg-white/80 backdrop-blur-sm p-10 rounded-3xl border border-gray-100 shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
+                    <div
+                        class="text-gold text-6xl font-serif leading-none mb-6 opacity-30 group-hover:opacity-100 transition-opacity">
+                        "</div>
+                    <p class="text-gray-700 text-lg mb-8 italic leading-relaxed">
+                        The margin calculator wasn't lying. We added $15k to our bottom line this quarter just by
+                        switching our dessert program.
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gray-200 rounded-full overflow-hidden mr-4">
+                            <img src="https://ui-avatars.com/api/?name=David+K&background=1a1a1a&color=fff"
+                                alt="David K." class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-black">David Kim</h4>
+                            <p class="text-sm text-gray-500">Director of Ops, Cinema Luxe</p>
+                        </div>
                     </div>
-
                 </div>
 
             </div>
 
         </div>
+    </section>
 
+
+
+    <!-- FAQ Section -->
+    <section class="py-40 bg-cream relative">
+
+        <div class="max-w-4xl mx-auto px-6">
+
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-black">Common <span
+                        class="text-gold italic">Questions.</span></h2>
+                <p class="text-gray-500 text-lg">Everything you need to know before starting your trial.</p>
+            </div>
+
+            <div class="space-y-4">
+
+                <!-- FAQ Item 1 -->
+                <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden faq-item group">
+                    <button class="w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none"
+                        aria-controls="faq-content-1" aria-expanded="false">
+                        <span class="text-xl font-bold text-gray-900 group-hover:text-gold transition-colors">What is
+                            the minimum order quantity?</span>
+                        <span class="transform transition-transform duration-300 faq-icon">
+                            <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </span>
+                    </button>
+                    <div id="faq-content-1"
+                        class="px-8 pb-0 max-h-0 overflow-hidden transition-all duration-500 ease-in-out faq-content">
+                        <p class="text-gray-600 pb-8 leading-relaxed">
+                            We keep it flexible. Our minimum order is just 5 cases (mixed SKUs allowed). This allows
+                            even smaller venues to maintain a fresh rotation without overstocking.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden faq-item group">
+                    <button class="w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none"
+                        aria-controls="faq-content-2" aria-expanded="false">
+                        <span class="text-xl font-bold text-gray-900 group-hover:text-gold transition-colors">How long
+                            do the desserts stay fresh?</span>
+                        <span class="transform transition-transform duration-300 faq-icon">
+                            <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </span>
+                    </button>
+                    <div id="faq-content-2"
+                        class="px-8 pb-0 max-h-0 overflow-hidden transition-all duration-500 ease-in-out faq-content">
+                        <p class="text-gray-600 pb-8 leading-relaxed">
+                            Our products are flash-frozen to lock in quality. They have a 6-month shelf life in the
+                            freezer. Once thawed, they stay fresh for 5-7 days in the refrigerator, giving you plenty of
+                            time to sell through.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden faq-item group">
+                    <button class="w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none"
+                        aria-controls="faq-content-3" aria-expanded="false">
+                        <span class="text-xl font-bold text-gray-900 group-hover:text-gold transition-colors">Do you
+                            offer samples?</span>
+                        <span class="transform transition-transform duration-300 faq-icon">
+                            <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </span>
+                    </button>
+                    <div id="faq-content-3"
+                        class="px-8 pb-0 max-h-0 overflow-hidden transition-all duration-500 ease-in-out faq-content">
+                        <p class="text-gray-600 pb-8 leading-relaxed">
+                            Absolutely. We believe the product speaks for itself. Click the "Book a Tasting" button to
+                            schedule a delivery of our core sample box for your team to try.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden faq-item group">
+                    <button class="w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none"
+                        aria-controls="faq-content-4" aria-expanded="false">
+                        <span class="text-xl font-bold text-gray-900 group-hover:text-gold transition-colors">What about
+                            delivery times?</span>
+                        <span class="transform transition-transform duration-300 faq-icon">
+                            <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </span>
+                    </button>
+                    <div id="faq-content-4"
+                        class="px-8 pb-0 max-h-0 overflow-hidden transition-all duration-500 ease-in-out faq-content">
+                        <p class="text-gray-600 pb-8 leading-relaxed">
+                            We deliver twice a week to most metro areas. Orders placed by 2 PM are shipped the next
+                            business day. We use refrigerated transport to ensure your product arrives in perfect
+                            condition.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <section id="our-story" class="py-40 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+            <div class="relative">
+                <div class="absolute -top-10 -left-10 w-40 h-40 bg-gold/10 rounded-full blur-3xl"></div>
+                <img src="https://images.unsplash.com/photo-1556910103-1c02745a30bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                    alt="Chef plating dessert"
+                    class="rounded-3xl shadow-2xl relative z-10 rotate-2 hover:rotate-0 transition-transform duration-500">
+                <div class="absolute -bottom-10 -right-10 w-64 h-64 bg-pastel-blue/30 rounded-full blur-3xl"></div>
+            </div>
+
+            <div class="space-y-8">
+                <h2 class="text-4xl md:text-5xl font-bold text-black">Born in the <span
+                        class="text-gold italic">Kitchen.</span></h2>
+                <p class="text-gray-600 text-lg leading-relaxed">
+                    Dessert Hub wasn't started by consultants. It was started by chefs who were tired of the "frozen vs.
+                    fresh" compromise.
+                </p>
+                <p class="text-gray-600 text-lg leading-relaxed">
+                    We realized that with the right techniques and ingredients, we could create a product that freezes
+                    perfectly and thaws into something indistinguishable from fresh.
+                </p>
+                <p class="text-gray-600 text-lg leading-relaxed">
+                    Today, we help hundreds of venues reclaim their labor hours while serving desserts they're proud to
+                    put their name on.
+                </p>
+
+                <div class="pt-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Signature_sample.svg/1200px-Signature_sample.svg.png"
+                        alt="Founder Signature" class="h-12 opacity-60">
+                    <p class="text-sm text-gray-400 mt-2">Founder & Executive Pastry Chef</p>
+                </div>
+            </div>
+        </div>
     </section>
 
 
