@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background-color: #faf9f6;
+}
+
+.bg-ivory {
+    background-color: #faf9f6;
+}
+
+.bg-cream {
+    background-color: #f5f3f0;
+}
+
+.bg-pastel-pink {
+    background-color: #f8e8e8;
+}
+
+.bg-pastel-blue {
+    background-color: #e8f0f8;
+}
+
+.bg-pastel-yellow {
+    background-color: #faf5e8;
+}
+
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes imageFadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.92);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes iconPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.slide-in {
+    animation: slideInFromLeft 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.image-entrance {
+    animation: imageFadeInScale 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* Carousel styles */
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.5s ease-in-out, visibility 1.5s ease-in-out;
+    z-index: 1;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+.carousel-slide img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    will-change: opacity;
+}
+
+.carousel-slide:nth-child(2) img {
+    /* Caribbean Spice Cake - zoom in slightly to crop purple edges */
+    object-position: center;
+    object-fit: cover;
+    transform: scale(1.1);
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 20;
+}
+
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-dot.active {
+    background-color: white;
+    border-color: white;
+    transform: scale(1.2);
+}
+
+/* Smooth hover transitions for all interactive elements */
+button,
+a {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+img {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease;
+}
+
+/* Image hover effects - more pronounced */
+img:not(.parallax-slow):not(.parallax-medium):not(.parallax-fast):hover {
+    transform: scale(1.08);
+}
+
+/* Icon hover effects */
+.icon-container:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.icon-container:hover svg {
+    transform: scale(1.1);
+}
+
+/* Ingredient image hover - more pronounced */
+.ingredient-image:not(.parallax-slow):not(.parallax-medium):not(.parallax-fast):hover {
+    transform: scale(1.12);
+    filter: brightness(1.05);
+}
+
+/* Navigation link hover */
+nav a:not(.bg-black):hover {
+    transform: translateY(-2px);
+}
+
+/* Parallax elements */
+.parallax-slow {
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+.parallax-medium {
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+.parallax-fast {
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+/* Mobile logo size reduction */
+@media (max-width: 768px) {
+    .logo-container img {
+        height: 102px !important;
+        /* 15% reduction from 120px */
+    }
+
+    /* Mobile headline size reduction - 20% smaller */
+    .hero-headline {
+        font-size: 2.4rem !important;
+        /* 20% reduction from text-6xl (3rem) */
+        line-height: 1.1 !important;
+    }
+
+    /* Mobile description size reduction - 20% smaller */
+    .hero-description {
+        font-size: 1rem !important;
+        /* 20% reduction from text-xl (1.25rem) */
+    }
+}

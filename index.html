@@ -8,237 +8,14 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Dessert Hub - B2B Wireframe</title>
+    <title>Dessert Hub - Premium B2B Dessert Solutions</title>
+    <meta name="description"
+        content="Dessert Hub provides gourmet, pre-portioned desserts for high-volume venues. Zero prep, high margin, and consistent quality.">
+    <meta name="keywords" content="B2B desserts, wholesale desserts, restaurant desserts, food service desserts">
 
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <style>
-
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body { 
-            font-family: 'Inter', sans-serif; 
-            -webkit-font-smoothing: antialiased;
-            background-color: #faf9f6;
-        }
-
-        .bg-ivory {
-            background-color: #faf9f6;
-        }
-
-        .bg-cream {
-            background-color: #f5f3f0;
-        }
-
-        .bg-pastel-pink {
-            background-color: #f8e8e8;
-        }
-
-        .bg-pastel-blue {
-            background-color: #e8f0f8;
-        }
-
-        .bg-pastel-yellow {
-            background-color: #faf5e8;
-        }
-
-        @keyframes slideInFromLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes imageFadeInScale {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        @keyframes iconPulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
-            }
-        }
-
-        .slide-in {
-            animation: slideInFromLeft 0.8s ease-out forwards;
-        }
-
-        .fade-in-up {
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-
-        .image-entrance {
-            animation: imageFadeInScale 0.8s ease-out forwards;
-        }
-
-        /* Carousel styles */
-        .carousel-container {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .carousel-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 1.5s ease-in-out, visibility 1.5s ease-in-out;
-            z-index: 1;
-        }
-
-        .carousel-slide.active {
-            opacity: 1;
-            visibility: visible;
-            z-index: 2;
-        }
-
-        .carousel-slide img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            display: block;
-            will-change: opacity;
-        }
-
-        .carousel-slide:nth-child(2) img {
-            /* Caribbean Spice Cake - zoom in slightly to crop purple edges */
-            object-position: center;
-            object-fit: cover;
-            transform: scale(1.1);
-        }
-
-        .carousel-dots {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 12px;
-            z-index: 20;
-        }
-
-        .carousel-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.5);
-            border: 2px solid rgba(255, 255, 255, 0.8);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .carousel-dot.active {
-            background-color: white;
-            border-color: white;
-            transform: scale(1.2);
-        }
-
-        /* Smooth hover transitions for all interactive elements */
-        button, a {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        img {
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease;
-        }
-
-        /* Image hover effects - more pronounced */
-        img:not(.parallax-slow):not(.parallax-medium):not(.parallax-fast):hover {
-            transform: scale(1.08);
-        }
-
-        /* Icon hover effects */
-        .icon-container:hover {
-            transform: translateY(-4px) scale(1.05);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .icon-container:hover svg {
-            transform: scale(1.1);
-        }
-
-        /* Ingredient image hover - more pronounced */
-        .ingredient-image:not(.parallax-slow):not(.parallax-medium):not(.parallax-fast):hover {
-            transform: scale(1.12);
-            filter: brightness(1.05);
-        }
-
-        /* Navigation link hover */
-        nav a:not(.bg-black):hover {
-            transform: translateY(-2px);
-        }
-
-        /* Parallax elements */
-        .parallax-slow {
-            will-change: transform;
-            transform: translateZ(0);
-        }
-
-        .parallax-medium {
-            will-change: transform;
-            transform: translateZ(0);
-        }
-
-        .parallax-fast {
-            will-change: transform;
-            transform: translateZ(0);
-        }
-
-        /* Mobile logo size reduction */
-        @media (max-width: 768px) {
-            .logo-container img {
-                height: 102px !important; /* 15% reduction from 120px */
-            }
-            
-            /* Mobile headline size reduction - 20% smaller */
-            .hero-headline {
-                font-size: 2.4rem !important; /* 20% reduction from text-6xl (3rem) */
-                line-height: 1.1 !important;
-            }
-            
-            /* Mobile description size reduction - 20% smaller */
-            .hero-description {
-                font-size: 1rem !important; /* 20% reduction from text-xl (1.25rem) */
-            }
-        }
-
-    </style>
+    <link rel="stylesheet" href="styles.css">
 
 </head>
 
@@ -252,25 +29,36 @@
 
             <div class="flex items-center">
                 <div class="bg-white/60 backdrop-blur-md rounded-lg p-2 border border-white/30 logo-container">
-                    <img src="Dessert Hub.png" alt="Dessert Hub" class="w-auto hover:scale-105 transition-transform duration-300 cursor-pointer" style="height: 120px;">
+                    <img src="Dessert Hub.png" alt="Dessert Hub"
+                        class="w-auto hover:scale-105 transition-transform duration-300 cursor-pointer"
+                        style="height: 120px;">
                 </div>
             </div>
 
             <div class="hidden lg:flex items-center space-x-4 text-sm font-medium text-gray-600">
 
-                <a href="#who-we-serve" class="bg-white/60 backdrop-blur-md text-black px-4 py-2 rounded-lg hover:text-black hover:translate-y-[-2px] transition-all duration-300 border border-white/30">Who We Serve</a>
+                <a href="#who-we-serve"
+                    class="bg-white/60 backdrop-blur-md text-black px-4 py-2 rounded-lg hover:text-black hover:translate-y-[-2px] transition-all duration-300 border border-white/30">Who
+                    We Serve</a>
 
-                <a href="#programs" class="bg-white/60 backdrop-blur-md text-black px-4 py-2 rounded-lg hover:text-black hover:translate-y-[-2px] transition-all duration-300 border border-white/30">Programs</a>
+                <a href="#programs"
+                    class="bg-white/60 backdrop-blur-md text-black px-4 py-2 rounded-lg hover:text-black hover:translate-y-[-2px] transition-all duration-300 border border-white/30">Programs</a>
 
-                <a href="#margins" class="bg-white/60 backdrop-blur-md text-black px-4 py-2 rounded-lg hover:text-black hover:translate-y-[-2px] transition-all duration-300 border border-white/30">Margins & Ops</a>
+                <a href="#margins"
+                    class="bg-white/60 backdrop-blur-md text-black px-4 py-2 rounded-lg hover:text-black hover:translate-y-[-2px] transition-all duration-300 border border-white/30">Margins
+                    & Ops</a>
 
-                <a href="#ingredients" class="bg-white/60 backdrop-blur-md text-black px-4 py-2 rounded-lg hover:text-black hover:translate-y-[-2px] transition-all duration-300 border border-white/30">Ingredients</a>
+                <a href="#ingredients"
+                    class="bg-white/60 backdrop-blur-md text-black px-4 py-2 rounded-lg hover:text-black hover:translate-y-[-2px] transition-all duration-300 border border-white/30">Ingredients</a>
 
-                <a href="#our-story" class="bg-white/60 backdrop-blur-md text-black px-4 py-2 rounded-lg hover:text-black hover:translate-y-[-2px] transition-all duration-300 border border-white/30">Our Story</a>
+                <a href="#our-story"
+                    class="bg-white/60 backdrop-blur-md text-black px-4 py-2 rounded-lg hover:text-black hover:translate-y-[-2px] transition-all duration-300 border border-white/30">Our
+                    Story</a>
 
             </div>
 
-            <a href="https://calendar.app.google/ku72zjP55xUYKa4eA" target="_blank" rel="noopener noreferrer" class="bg-black text-white text-base font-bold px-8 py-3 rounded-lg hover:bg-gray-800 hover:scale-105 hover:shadow-xl transition-all duration-300 shadow-lg">
+            <a href="https://calendar.app.google/ku72zjP55xUYKa4eA" target="_blank" rel="noopener noreferrer"
+                class="bg-black text-white text-base font-bold px-8 py-3 rounded-lg hover:bg-gray-800 hover:scale-105 hover:shadow-xl transition-all duration-300 shadow-lg">
 
                 Book a Tasting
 
@@ -282,9 +70,10 @@
 
 
 
-    <section class="pt-44 pb-32 px-6">
+    <section class="pt-48 pb-40 px-6">
 
-        <div class="relative w-full rounded-3xl overflow-hidden min-h-[600px] md:min-h-[700px] flex items-center carousel-container">
+        <div
+            class="relative w-full rounded-3xl overflow-hidden min-h-[600px] md:min-h-[700px] flex items-center carousel-container">
 
             <!-- Carousel slides -->
             <div class="carousel-slide active">
@@ -313,15 +102,19 @@
 
                     <!-- Animated tagline badge -->
                     <div class="slide-in opacity-0 inline-block">
-                        <div class="bg-white/60 backdrop-blur-md text-black px-4 py-2 rounded-lg text-sm font-semibold shadow-lg border border-white/30">
+                        <div
+                            class="bg-white/60 backdrop-blur-md text-black px-4 py-2 rounded-lg text-sm font-semibold shadow-lg border border-white/30">
                             Restaurants · Bars · Venues
                         </div>
                     </div>
 
                     <!-- Headline with gradient background -->
                     <div class="relative">
-                        <div class="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent rounded-lg -mx-4 -my-2 blur-sm"></div>
-                        <h1 class="relative text-6xl md:text-7xl font-extrabold tracking-tight leading-tight text-white drop-shadow-lg hero-headline">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent rounded-lg -mx-4 -my-2 blur-sm">
+                        </div>
+                        <h1
+                            class="relative text-7xl md:text-8xl font-extrabold tracking-tight leading-tight text-white drop-shadow-lg hero-headline">
 
                             All the Craft. <br>
 
@@ -332,19 +125,22 @@
 
                     <p class="text-xl text-green-200 leading-relaxed max-w-lg drop-shadow-md hero-description">
 
-                        Deploy a gourmet dessert menu instantly. Consistent quality, predictable costs, and effortless execution for high-volume venues.
+                        Deploy a gourmet dessert menu instantly. Consistent quality, predictable costs, and effortless
+                        execution for high-volume venues.
 
                     </p>
 
                     <div class="flex space-x-4 pt-4">
 
-                        <button class="bg-black text-white px-8 py-4 rounded-lg font-semibold text-lg hover:scale-105 hover:shadow-xl transition-all duration-300 shadow-lg">
+                        <button
+                            class="bg-black text-white px-8 py-4 rounded-lg font-semibold text-lg hover:scale-105 hover:shadow-xl transition-all duration-300 shadow-lg">
 
                             Start a Trial
 
                         </button>
 
-                        <button class="bg-white/90 backdrop-blur-sm text-black px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:scale-105 hover:shadow-xl transition-all duration-300 shadow-lg">
+                        <button
+                            class="bg-white/90 backdrop-blur-sm text-black px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:scale-105 hover:shadow-xl transition-all duration-300 shadow-lg">
 
                             See the Margins
 
@@ -362,43 +158,61 @@
 
 
 
-    <section class="py-32 bg-ivory">
+    <section class="py-40 bg-ivory">
 
-            <div class="max-w-7xl mx-auto px-8 grid md:grid-cols-3 gap-16 text-center">
+        <div class="max-w-7xl mx-auto px-8 grid md:grid-cols-3 gap-16 text-center">
 
             <div class="space-y-4 fade-in-up" style="animation-delay: 0.1s; opacity: 0;">
 
-                <div class="icon-container w-12 h-12 bg-pastel-pink rounded-xl mx-auto flex items-center justify-center text-gray-800 mb-4 transition-all duration-300">
+                <div
+                    class="icon-container w-12 h-12 bg-pastel-pink rounded-xl mx-auto flex items-center justify-center text-gray-800 mb-4 transition-all duration-300">
 
-                    <svg class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <svg class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
 
                 </div>
 
                 <h3 class="text-xl font-bold">Zero Prep Time</h3>
 
-                <p class="text-gray-500">Stop worrying about pastry staff turnover. We plug into your operations with zero added labor.</p>
+                <p class="text-gray-500">Stop worrying about pastry staff turnover. We plug into your operations with
+                    zero added labor.</p>
 
             </div>
 
             <div class="space-y-4 fade-in-up" style="animation-delay: 0.2s; opacity: 0;">
 
-                <div class="icon-container w-12 h-12 bg-pastel-blue rounded-xl mx-auto flex items-center justify-center text-gray-800 mb-4 transition-all duration-300">
+                <div
+                    class="icon-container w-12 h-12 bg-pastel-blue rounded-xl mx-auto flex items-center justify-center text-gray-800 mb-4 transition-all duration-300">
 
-                     <svg class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                    <svg class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z">
+                        </path>
+                    </svg>
 
                 </div>
 
                 <h3 class="text-xl font-bold">Gourmet on Demand</h3>
 
-                <p class="text-gray-500">Bespoke recipes that rival in-house pastry chefs. You stay the hero; we stay behind the scenes.</p>
+                <p class="text-gray-500">Bespoke recipes that rival in-house pastry chefs. You stay the hero; we stay
+                    behind the scenes.</p>
 
             </div>
 
             <div class="space-y-4 fade-in-up" style="animation-delay: 0.3s; opacity: 0;">
 
-                <div class="icon-container w-12 h-12 bg-pastel-yellow rounded-xl mx-auto flex items-center justify-center text-gray-800 mb-4 transition-all duration-300">
+                <div
+                    class="icon-container w-12 h-12 bg-pastel-yellow rounded-xl mx-auto flex items-center justify-center text-gray-800 mb-4 transition-all duration-300">
 
-                     <svg class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                    <svg class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                    </svg>
 
                 </div>
 
@@ -414,7 +228,7 @@
 
 
 
-    <section class="py-32 px-6 max-w-7xl mx-auto bg-white">
+    <section class="py-40 px-6 max-w-7xl mx-auto bg-white">
 
         <div class="text-center mb-20">
 
@@ -424,13 +238,16 @@
 
         </div>
 
-        
+
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 h-auto md:h-[600px]">
 
-            <div class="md:col-span-2 md:row-span-2 bg-cream rounded-3xl p-10 flex flex-col justify-end relative overflow-hidden">
+            <div
+                class="md:col-span-2 md:row-span-2 bg-cream rounded-3xl p-10 flex flex-col justify-end relative overflow-hidden">
 
-                <img src="Butter.png" alt="Real Pure & Natural European Butter" class="image-entrance ingredient-image absolute inset-0 w-full h-full object-cover" style="opacity: 0; animation-delay: 0.2s;">
+                <img src="Butter.png" alt="Real Pure & Natural European Butter"
+                    class="image-entrance ingredient-image absolute inset-0 w-full h-full object-cover"
+                    style="opacity: 0; animation-delay: 0.2s;">
 
                 <div class="relative z-10">
 
@@ -444,7 +261,9 @@
 
             <div class="bg-cream rounded-3xl p-8 flex flex-col justify-end relative overflow-hidden h-64 md:h-auto">
 
-                <img src="Vanilla.png" alt="100% Madagascar Vanilla" class="image-entrance ingredient-image absolute inset-0 w-full h-full object-cover" style="opacity: 0; animation-delay: 0.3s;">
+                <img src="Vanilla.png" alt="100% Madagascar Vanilla"
+                    class="image-entrance ingredient-image absolute inset-0 w-full h-full object-cover"
+                    style="opacity: 0; animation-delay: 0.3s;">
 
                 <div class="relative z-10">
 
@@ -456,7 +275,9 @@
 
             <div class="bg-cream rounded-3xl p-8 flex flex-col justify-end relative overflow-hidden h-64 md:h-auto">
 
-                <img src="Chocolate.png" alt="Ethically Sourced Chocolate" class="image-entrance ingredient-image absolute inset-0 w-full h-full object-cover" style="opacity: 0; animation-delay: 0.4s;">
+                <img src="Chocolate.png" alt="Ethically Sourced Chocolate"
+                    class="image-entrance ingredient-image absolute inset-0 w-full h-full object-cover"
+                    style="opacity: 0; animation-delay: 0.4s;">
 
                 <div class="relative z-10">
 
@@ -470,23 +291,23 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
 
-             <div class="bg-cream rounded-3xl p-8 text-center py-16">
+            <div class="bg-cream rounded-3xl p-8 text-center py-16">
 
                 <h4 class="font-bold text-gray-900">Cage Free Eggs</h4>
 
-             </div>
+            </div>
 
-             <div class="bg-cream rounded-3xl p-8 text-center py-16">
+            <div class="bg-cream rounded-3xl p-8 text-center py-16">
 
                 <h4 class="font-bold text-gray-900">Non-GMO Cane Sugar</h4>
 
-             </div>
+            </div>
 
-             <div class="bg-cream rounded-3xl p-8 text-center py-16">
+            <div class="bg-cream rounded-3xl p-8 text-center py-16">
 
                 <h4 class="font-bold text-gray-900">Artisan Pastry Flour</h4>
 
-             </div>
+            </div>
 
         </div>
 
@@ -494,7 +315,7 @@
 
 
 
-    <section class="py-32 bg-cream">
+    <section class="py-40 bg-cream">
 
         <div class="max-w-7xl mx-auto px-8 grid md:grid-cols-2 gap-20 items-center">
 
@@ -504,7 +325,8 @@
 
                 <p class="text-gray-600 text-lg mb-8 leading-relaxed">
 
-                    Instead of forcing you to choose between labor-heavy in-house pastry or soulless big-box frozen, we plug in a solution that fits your concept.
+                    Instead of forcing you to choose between labor-heavy in-house pastry or soulless big-box frozen, we
+                    plug in a solution that fits your concept.
 
                 </p>
 
@@ -578,7 +400,9 @@
 
             <p class="text-gray-400 mb-4">Dessert Hub® - The B2B Dessert Partner</p>
 
-            <a href="#" class="bg-white/60 backdrop-blur-md text-black font-bold text-lg px-6 py-3 rounded-lg hover:text-gray-700 hover:translate-y-[-2px] transition-all duration-300 border border-white/30 inline-block">Start Your Trial</a>
+            <a href="#"
+                class="bg-white/60 backdrop-blur-md text-black font-bold text-lg px-6 py-3 rounded-lg hover:text-gray-700 hover:translate-y-[-2px] transition-all duration-300 border border-white/30 inline-block">Start
+                Your Trial</a>
 
         </div>
 
@@ -586,171 +410,8 @@
 
 
 
-    <script>
-        // Subtle parallax effect on scroll
-        document.addEventListener('DOMContentLoaded', function() {
-            const parallaxElements = document.querySelectorAll('.parallax-slow, .parallax-medium, .parallax-fast');
-            
-            // Parallax speed multipliers (lower = slower movement, more subtle)
-            const speeds = {
-                'parallax-slow': 0.2,
-                'parallax-medium': 0.3,
-                'parallax-fast': 0.4
-            };
-
-            function updateParallax() {
-                const scrollY = window.pageYOffset;
-                const windowHeight = window.innerHeight;
-                
-                parallaxElements.forEach(element => {
-                    const className = Array.from(element.classList).find(cls => cls.startsWith('parallax-'));
-                    const speed = speeds[className] || 0.3;
-                    const rect = element.getBoundingClientRect();
-                    const elementTop = rect.top + scrollY;
-                    
-                    // Only apply parallax when element is in or near viewport
-                    if (rect.bottom >= -windowHeight && rect.top <= windowHeight * 2) {
-                        // Calculate parallax based on scroll position
-                        const scrolled = scrollY - (elementTop - windowHeight);
-                        const translateY = scrolled * speed * 0.12; // Very subtle multiplier
-                        
-                        // Store parallax value in data attribute
-                        element.dataset.parallaxY = translateY;
-                        
-                        // Apply transform - will combine with hover scale via CSS
-                        element.style.setProperty('--parallax-translate', `${translateY}px`);
-                    }
-                });
-            }
-
-            // Add CSS for parallax transform that works with hover
-            const style = document.createElement('style');
-            style.textContent = `
-                .parallax-slow, .parallax-medium, .parallax-fast {
-                    transform: translate3d(0, var(--parallax-translate, 0), 0);
-                }
-                .parallax-slow:hover, .parallax-medium:hover, .parallax-fast:hover {
-                    transform: translate3d(0, var(--parallax-translate, 0), 0) scale(1.02);
-                }
-                .ingredient-image.parallax-slow:hover,
-                .ingredient-image.parallax-medium:hover,
-                .ingredient-image.parallax-fast:hover {
-                    transform: translate3d(0, var(--parallax-translate, 0), 0) scale(1.05);
-                }
-            `;
-            document.head.appendChild(style);
-
-            // Throttle scroll events for performance
-            let ticking = false;
-            window.addEventListener('scroll', function() {
-                if (!ticking) {
-                    window.requestAnimationFrame(function() {
-                        updateParallax();
-                        ticking = false;
-                    });
-                    ticking = true;
-                }
-            }, { passive: true });
-
-            // Initial call
-            updateParallax();
-        });
-
-        // Hero carousel functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const slides = document.querySelectorAll('.carousel-slide');
-            const dots = document.querySelectorAll('.carousel-dot');
-            let currentSlide = 0;
-            let carouselInterval;
-            let isTransitioning = false;
-
-            function showSlide(index) {
-                if (isTransitioning || index === currentSlide) return;
-                
-                isTransitioning = true;
-
-                // Remove active class from current slide and dot
-                slides[currentSlide].classList.remove('active');
-                dots[currentSlide].classList.remove('active');
-
-                // Add active class to new slide and dot
-                slides[index].classList.add('active');
-                dots[index].classList.add('active');
-                
-                currentSlide = index;
-
-                // Reset transition flag after transition completes
-                setTimeout(() => {
-                    isTransitioning = false;
-                }, 1600);
-            }
-
-            function nextSlide() {
-                if (isTransitioning) return;
-                const next = (currentSlide + 1) % slides.length;
-                showSlide(next);
-            }
-
-            function startCarousel() {
-                if (carouselInterval) clearInterval(carouselInterval);
-                carouselInterval = setInterval(nextSlide, 8000); // Change slide every 8 seconds
-            }
-
-            function stopCarousel() {
-                if (carouselInterval) {
-                    clearInterval(carouselInterval);
-                    carouselInterval = null;
-                }
-            }
-
-            // Dot navigation
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    if (isTransitioning || index === currentSlide) return;
-                    stopCarousel();
-                    showSlide(index);
-                    startCarousel();
-                });
-            });
-
-            // Pause on hover
-            const carouselContainer = document.querySelector('.carousel-container');
-            if (carouselContainer) {
-                carouselContainer.addEventListener('mouseenter', stopCarousel);
-                carouselContainer.addEventListener('mouseleave', startCarousel);
-            }
-
-            // Preload images and start carousel
-            const images = document.querySelectorAll('.carousel-slide img');
-            let loadedCount = 0;
-            
-            const checkAllLoaded = () => {
-                if (loadedCount === images.length) {
-                    // Ensure first slide is visible
-                    slides[0].classList.add('active');
-                    setTimeout(startCarousel, 1000);
-                }
-            };
-
-            images.forEach((img, index) => {
-                if (img.complete && img.naturalHeight !== 0) {
-                    loadedCount++;
-                    checkAllLoaded();
-                } else {
-                    img.addEventListener('load', () => {
-                        loadedCount++;
-                        checkAllLoaded();
-                    });
-                    img.addEventListener('error', () => {
-                        loadedCount++;
-                        checkAllLoaded();
-                    });
-                }
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 
 </body>
 
 </html>
-
