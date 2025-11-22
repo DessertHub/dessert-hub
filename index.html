@@ -16,255 +16,37 @@
 
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
 
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body { 
-            font-family: 'Inter', sans-serif; 
-            -webkit-font-smoothing: antialiased;
-            background-color: #faf9f6;
-        }
-
-        .bg-ivory {
-            background-color: #faf9f6;
-        }
-
-        .bg-cream {
-            background-color: #f5f3f0;
-        }
-
-        .bg-pastel-pink {
-            background-color: #f8e8e8;
-        }
-
-        .bg-pastel-blue {
-            background-color: #e8f0f8;
-        }
-
-        .bg-pastel-yellow {
-            background-color: #faf5e8;
-        }
-
-        @keyframes slideInFromLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes imageFadeInScale {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        @keyframes iconPulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
-            }
-        }
-
-        .slide-in {
-            animation: slideInFromLeft 0.8s ease-out forwards;
-        }
-
-        .fade-in-up {
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-
-        .image-entrance {
-            animation: imageFadeInScale 0.8s ease-out forwards;
-        }
-
-        /* Carousel styles */
-        .carousel-container {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .carousel-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 1.5s ease-in-out, visibility 1.5s ease-in-out;
-            z-index: 1;
-        }
-
-        .carousel-slide.active {
-            opacity: 1;
-            visibility: visible;
-            z-index: 2;
-        }
-
-        .carousel-slide img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            display: block;
-            will-change: opacity;
-        }
-
-        .carousel-slide:nth-child(2) img {
-            /* Caribbean Spice Cake - adjust to avoid purple line on right */
-            object-position: center left;
-        }
-
-        /* Mobile adjustments - zoom out images to show more of the product */
-        @media (max-width: 768px) {
-            .carousel-slide img {
-                object-fit: contain;
-                object-position: center;
-                background-color: #f5f3f0;
-            }
-
-            .carousel-slide:nth-child(2) img {
-                /* Caribbean Spice Cake - center on mobile */
-                object-position: center;
-            }
-        }
-
-        .carousel-dots {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 12px;
-            z-index: 20;
-        }
-
-        .carousel-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.5);
-            border: 2px solid rgba(255, 255, 255, 0.8);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .carousel-dot.active {
-            background-color: white;
-            border-color: white;
-            transform: scale(1.2);
-        }
-
-        /* Smooth hover transitions for all interactive elements */
-        button, a {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        img {
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease;
-        }
-
-        /* Image hover effects - more pronounced */
-        img:not(.parallax-slow):not(.parallax-medium):not(.parallax-fast):hover {
-            transform: scale(1.08);
-        }
-
-        /* Icon hover effects */
-        .icon-container:hover {
-            transform: translateY(-4px) scale(1.05);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .icon-container:hover svg {
-            transform: scale(1.1);
-        }
-
-        /* Ingredient image hover - more pronounced */
-        .ingredient-image:not(.parallax-slow):not(.parallax-medium):not(.parallax-fast):hover {
-            transform: scale(1.12);
-            filter: brightness(1.05);
-        }
-
-        /* Navigation link hover */
-        nav a:not(.bg-black):hover {
-            transform: translateY(-2px);
-        }
-
-        /* Parallax elements */
-        .parallax-slow {
-            will-change: transform;
-            transform: translateZ(0);
-        }
-
-        .parallax-medium {
-            will-change: transform;
-            transform: translateZ(0);
-        }
-
-        .parallax-fast {
-            will-change: transform;
-            transform: translateZ(0);
-        }
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
 
     </style>
 
 </head>
 
-<body class="bg-ivory text-gray-900">
+<body class="bg-white text-gray-900">
 
 
 
-    <nav class="fixed w-full z-50 bg-ivory/90 backdrop-blur-md border-b border-gray-100">
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
 
-        <div class="max-w-7xl mx-auto px-6 h-36 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto px-6 h-28 flex items-center justify-between">
 
             <div class="flex items-center">
-                <img src="Dessert Hub.png" alt="Dessert Hub" class="w-auto hover:scale-105 transition-transform duration-300 cursor-pointer rounded-lg p-2" style="background-color: #faf9f6; height: 120px;">
+                <img src="Dessert Hub.png" alt="Dessert Hub" class="h-24 w-auto">
             </div>
 
-            <div class="hidden lg:flex items-center space-x-4 text-sm font-medium text-gray-600">
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-500">
 
-                <a href="#who-we-serve" class="bg-white/60 backdrop-blur-md text-black px-4 py-2 rounded-lg hover:text-black hover:translate-y-[-2px] transition-all duration-300 border border-white/30">Who We Serve</a>
+                <a href="#" class="hover:text-black transition">Our Process</a>
 
-                <a href="#programs" class="bg-white/60 backdrop-blur-md text-black px-4 py-2 rounded-lg hover:text-black hover:translate-y-[-2px] transition-all duration-300 border border-white/30">Programs</a>
+                <a href="#" class="hover:text-black transition">The Margins</a>
 
-                <a href="#margins" class="bg-white/60 backdrop-blur-md text-black px-4 py-2 rounded-lg hover:text-black hover:translate-y-[-2px] transition-all duration-300 border border-white/30">Margins & Ops</a>
-
-                <a href="#ingredients" class="bg-white/60 backdrop-blur-md text-black px-4 py-2 rounded-lg hover:text-black hover:translate-y-[-2px] transition-all duration-300 border border-white/30">Ingredients</a>
-
-                <a href="#our-story" class="bg-white/60 backdrop-blur-md text-black px-4 py-2 rounded-lg hover:text-black hover:translate-y-[-2px] transition-all duration-300 border border-white/30">Our Story</a>
+                <a href="#" class="hover:text-black transition">Ingredients</a>
 
             </div>
 
-            <a href="https://calendar.app.google/ku72zjP55xUYKa4eA" target="_blank" rel="noopener noreferrer" class="bg-black text-white text-base font-bold px-8 py-3 rounded-lg hover:bg-gray-800 hover:scale-105 hover:shadow-xl transition-all duration-300 shadow-lg">
+            <a href="https://calendar.app.google/ku72zjP55xUYKa4eA" target="_blank" rel="noopener noreferrer" class="bg-black text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-gray-800 transition">
 
-                Book a Tasting
+                Request a Tasting
 
             </a>
 
@@ -274,53 +56,23 @@
 
 
 
-    <section class="pt-44 pb-32 px-6">
+    <section class="pt-40 pb-20 px-6">
 
-        <div class="relative w-full rounded-3xl overflow-hidden min-h-[600px] md:min-h-[700px] flex items-center carousel-container">
+        <div class="relative w-full rounded-3xl overflow-hidden min-h-[600px] md:min-h-[700px] flex items-center">
 
-            <!-- Carousel slides -->
-            <div class="carousel-slide active">
-                <img src="hero-image.jpg" alt="Chocolate chip cookies with nuts on dark surface" loading="eager">
-            </div>
-            <div class="carousel-slide">
-                <img src="Caribbean Spice Cake.jpeg" alt="Caribbean Spice Cake" loading="eager">
-            </div>
-            <div class="carousel-slide">
-                <img src="Brownies.jpg" alt="Brownies" loading="eager">
-            </div>
+            <img src="hero-image.jpg" alt="Chocolate chip cookies with nuts on dark surface" class="absolute inset-0 w-full h-full object-cover">
 
-            <!-- Carousel navigation dots -->
-            <div class="carousel-dots">
-                <button class="carousel-dot active" data-slide="0" aria-label="Slide 1"></button>
-                <button class="carousel-dot" data-slide="1" aria-label="Slide 2"></button>
-                <button class="carousel-dot" data-slide="2" aria-label="Slide 3"></button>
-            </div>
-
-            <!-- Gradient overlay for headline contrast -->
-            <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent z-0"></div>
-
-            <div class="relative z-10 max-w-7xl mx-auto w-full px-8 md:px-16 py-20">
+            <div class="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-12 py-16">
 
                 <div class="max-w-2xl space-y-6">
 
-                    <!-- Animated tagline badge -->
-                    <div class="slide-in opacity-0 inline-block">
-                        <div class="bg-white/60 backdrop-blur-md text-black px-4 py-2 rounded-lg text-sm font-semibold shadow-lg border border-white/30">
-                            Restaurants · Bars · Venues
-                        </div>
-                    </div>
+                    <h1 class="text-6xl md:text-7xl font-extrabold tracking-tight leading-tight text-white drop-shadow-lg">
 
-                    <!-- Headline with gradient background -->
-                    <div class="relative">
-                        <div class="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent rounded-lg -mx-4 -my-2 blur-sm"></div>
-                        <h1 class="relative text-6xl md:text-7xl font-extrabold tracking-tight leading-tight text-white drop-shadow-lg">
+                        Stacked on Flavor. <br>
 
-                            Stacked on Flavor. <br>
+                        <span class="text-gray-200">Thin on Labor.</span>
 
-                            <span class="text-gray-200">Thin on Labor.</span>
-
-                        </h1>
-                    </div>
+                    </h1>
 
                     <p class="text-xl text-white leading-relaxed max-w-lg drop-shadow-md">
 
@@ -330,13 +82,13 @@
 
                     <div class="flex space-x-4 pt-4">
 
-                        <button class="bg-black text-white px-8 py-4 rounded-lg font-semibold text-lg hover:scale-105 hover:shadow-xl transition-all duration-300 shadow-lg">
+                        <button class="bg-black text-white px-8 py-4 rounded-full font-semibold text-lg hover:scale-105 transition transform shadow-lg">
 
                             Start a Trial
 
                         </button>
 
-                        <button class="bg-white/90 backdrop-blur-sm text-black px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:scale-105 hover:shadow-xl transition-all duration-300 shadow-lg">
+                        <button class="bg-white/90 backdrop-blur-sm text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-white transition shadow-lg">
 
                             See the Margins
 
@@ -354,15 +106,15 @@
 
 
 
-    <section class="py-32 bg-ivory">
+    <section class="py-20 bg-gray-50">
 
-            <div class="max-w-7xl mx-auto px-8 grid md:grid-cols-3 gap-16 text-center">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-12 text-center">
 
-            <div class="space-y-4 fade-in-up" style="animation-delay: 0.1s; opacity: 0;">
+            <div class="space-y-4">
 
-                <div class="icon-container w-12 h-12 bg-pastel-pink rounded-xl mx-auto flex items-center justify-center text-gray-800 mb-4 transition-all duration-300">
+                <div class="w-12 h-12 bg-black rounded-xl mx-auto flex items-center justify-center text-white mb-4">
 
-                    <svg class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
 
                 </div>
 
@@ -372,11 +124,11 @@
 
             </div>
 
-            <div class="space-y-4 fade-in-up" style="animation-delay: 0.2s; opacity: 0;">
+            <div class="space-y-4">
 
-                <div class="icon-container w-12 h-12 bg-pastel-blue rounded-xl mx-auto flex items-center justify-center text-gray-800 mb-4 transition-all duration-300">
+                <div class="w-12 h-12 bg-black rounded-xl mx-auto flex items-center justify-center text-white mb-4">
 
-                     <svg class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
 
                 </div>
 
@@ -386,11 +138,11 @@
 
             </div>
 
-            <div class="space-y-4 fade-in-up" style="animation-delay: 0.3s; opacity: 0;">
+            <div class="space-y-4">
 
-                <div class="icon-container w-12 h-12 bg-pastel-yellow rounded-xl mx-auto flex items-center justify-center text-gray-800 mb-4 transition-all duration-300">
+                <div class="w-12 h-12 bg-black rounded-xl mx-auto flex items-center justify-center text-white mb-4">
 
-                     <svg class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
 
                 </div>
 
@@ -406,9 +158,9 @@
 
 
 
-    <section class="py-32 px-6 max-w-7xl mx-auto bg-white">
+    <section class="py-24 px-6 max-w-7xl mx-auto">
 
-        <div class="text-center mb-20">
+        <div class="text-center mb-16">
 
             <h2 class="text-4xl font-bold mb-4">Sourced like a Michelin Kitchen.</h2>
 
@@ -420,9 +172,9 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 h-auto md:h-[600px]">
 
-            <div class="md:col-span-2 md:row-span-2 bg-cream rounded-3xl p-10 flex flex-col justify-end relative overflow-hidden">
+            <div class="md:col-span-2 md:row-span-2 bg-gray-100 rounded-3xl p-8 flex flex-col justify-end relative overflow-hidden">
 
-                <img src="Butter.png" alt="Real Pure & Natural European Butter" class="image-entrance ingredient-image absolute inset-0 w-full h-full object-cover" style="opacity: 0; animation-delay: 0.2s;">
+                <div class="absolute inset-0 bg-gray-200 flex items-center justify-center text-gray-400 font-mono">[ Photo: Melting European Butter ]</div>
 
                 <div class="relative z-10">
 
@@ -434,9 +186,9 @@
 
             </div>
 
-            <div class="bg-cream rounded-3xl p-8 flex flex-col justify-end relative overflow-hidden h-64 md:h-auto">
+            <div class="bg-gray-100 rounded-3xl p-6 flex flex-col justify-end relative overflow-hidden h-64 md:h-auto">
 
-                <img src="Vanilla.png" alt="100% Madagascar Vanilla" class="image-entrance ingredient-image absolute inset-0 w-full h-full object-cover" style="opacity: 0; animation-delay: 0.3s;">
+                <div class="absolute inset-0 bg-gray-200 flex items-center justify-center text-gray-400 font-mono text-xs">[ Photo: Vanilla Beans ]</div>
 
                 <div class="relative z-10">
 
@@ -446,9 +198,9 @@
 
             </div>
 
-            <div class="bg-cream rounded-3xl p-8 flex flex-col justify-end relative overflow-hidden h-64 md:h-auto">
+            <div class="bg-gray-100 rounded-3xl p-6 flex flex-col justify-end relative overflow-hidden h-64 md:h-auto">
 
-                <img src="Chocolate.png" alt="Ethically Sourced Chocolate" class="image-entrance ingredient-image absolute inset-0 w-full h-full object-cover" style="opacity: 0; animation-delay: 0.4s;">
+                <div class="absolute inset-0 bg-gray-200 flex items-center justify-center text-gray-400 font-mono text-xs">[ Photo: Chocolate Chunks ]</div>
 
                 <div class="relative z-10">
 
@@ -462,19 +214,19 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
 
-             <div class="bg-cream rounded-3xl p-8 text-center py-16">
+             <div class="bg-gray-50 rounded-3xl p-6 text-center py-12">
 
                 <h4 class="font-bold text-gray-900">Cage Free Eggs</h4>
 
              </div>
 
-             <div class="bg-cream rounded-3xl p-8 text-center py-16">
+             <div class="bg-gray-50 rounded-3xl p-6 text-center py-12">
 
                 <h4 class="font-bold text-gray-900">Non-GMO Cane Sugar</h4>
 
              </div>
 
-             <div class="bg-cream rounded-3xl p-8 text-center py-16">
+             <div class="bg-gray-50 rounded-3xl p-6 text-center py-12">
 
                 <h4 class="font-bold text-gray-900">Artisan Pastry Flour</h4>
 
@@ -486,35 +238,35 @@
 
 
 
-    <section class="py-32 bg-cream">
+    <section class="py-24 bg-black text-white">
 
-        <div class="max-w-7xl mx-auto px-8 grid md:grid-cols-2 gap-20 items-center">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
 
-            <div class="space-y-8">
+            <div>
 
-                <h2 class="text-4xl font-bold mb-6 text-black">Unburden the Artist. <br>Showcase the Craft.</h2>
+                <h2 class="text-4xl font-bold mb-6">Unburden the Artist. <br>Showcase the Craft.</h2>
 
-                <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+                <p class="text-gray-400 text-lg mb-8">
 
                     Instead of forcing you to choose between labor-heavy in-house pastry or soulless big-box frozen, we plug in a solution that fits your concept.
 
                 </p>
 
-                <ul class="space-y-6">
+                <ul class="space-y-4">
 
-                    <li class="flex items-center border-b border-gray-200 pb-6">
+                    <li class="flex items-center border-b border-gray-800 pb-4">
 
-                        <span class="w-32 text-gray-500 font-medium">The Old Way</span>
+                        <span class="w-32 text-gray-500">The Old Way</span>
 
-                        <span class="text-gray-800">High Labor, High Waste, Inconsistent</span>
+                        <span>High Labor, High Waste, Inconsistent</span>
 
                     </li>
 
-                    <li class="flex items-center border-b border-gray-200 pb-6">
+                    <li class="flex items-center border-b border-gray-800 pb-4">
 
-                        <span class="w-32 text-green-600 font-semibold">Dessert Hub</span>
+                        <span class="w-32 text-green-400">Dessert Hub</span>
 
-                        <span class="text-gray-800">Pre-Portioned, Zero Waste, High Margin</span>
+                        <span>Pre-Portioned, Zero Waste, High Margin</span>
 
                     </li>
 
@@ -522,13 +274,13 @@
 
             </div>
 
-            <div class="bg-white rounded-3xl p-12 border border-gray-100 shadow-lg">
+            <div class="bg-gray-900 rounded-3xl p-10 border border-gray-800">
 
-                <h3 class="text-2xl font-bold mb-10 text-center text-black">Typical Margin Breakdown</h3>
+                <h3 class="text-2xl font-bold mb-8 text-center">Typical Margin Breakdown</h3>
 
-                <div class="space-y-8">
+                <div class="space-y-6">
 
-                    <div class="flex justify-between text-sm text-gray-500 uppercase tracking-wider">
+                    <div class="flex justify-between text-sm text-gray-400 uppercase tracking-wider">
 
                         <span>Cost to You</span>
 
@@ -538,19 +290,19 @@
 
                     <div class="flex justify-between items-end">
 
-                        <span class="text-4xl font-bold text-gray-400">$1.95</span>
+                        <span class="text-4xl font-bold text-gray-500">$1.75</span>
 
-                        <div class="h-px bg-gray-200 flex-1 mx-4 mb-4"></div>
+                        <div class="h-px bg-gray-700 flex-1 mx-4 mb-4"></div>
 
-                        <span class="text-4xl font-bold text-black">$6.00</span>
+                        <span class="text-4xl font-bold text-white">$6.00</span>
 
                     </div>
 
-                    <div class="mt-10 pt-10 border-t border-gray-200 text-center">
+                    <div class="mt-8 pt-8 border-t border-gray-800 text-center">
 
-                        <span class="block text-sm text-green-600 mb-2 font-medium">Gross Profit Per Unit</span>
+                        <span class="block text-sm text-green-400 mb-1">Gross Profit Per Unit</span>
 
-                        <span class="text-5xl font-bold text-green-600">$4.05</span>
+                        <span class="text-5xl font-bold text-green-500">$4.25</span>
 
                     </div>
 
@@ -564,183 +316,19 @@
 
 
 
-    <footer class="bg-ivory py-16 border-t border-gray-100">
+    <footer class="bg-white py-12 border-t border-gray-200">
 
-        <div class="max-w-7xl mx-auto px-8 text-center">
+        <div class="max-w-7xl mx-auto px-6 text-center">
 
             <p class="text-gray-400 mb-4">Dessert Hub® - The B2B Dessert Partner</p>
 
-            <a href="#" class="bg-white/60 backdrop-blur-md text-black font-bold text-lg px-6 py-3 rounded-lg hover:text-gray-700 hover:translate-y-[-2px] transition-all duration-300 border border-white/30 inline-block">Start Your Trial</a>
+            <a href="#" class="text-black font-bold text-lg underline">Start Your Trial</a>
 
         </div>
 
     </footer>
 
 
-
-    <script>
-        // Subtle parallax effect on scroll
-        document.addEventListener('DOMContentLoaded', function() {
-            const parallaxElements = document.querySelectorAll('.parallax-slow, .parallax-medium, .parallax-fast');
-            
-            // Parallax speed multipliers (lower = slower movement, more subtle)
-            const speeds = {
-                'parallax-slow': 0.2,
-                'parallax-medium': 0.3,
-                'parallax-fast': 0.4
-            };
-
-            function updateParallax() {
-                const scrollY = window.pageYOffset;
-                const windowHeight = window.innerHeight;
-                
-                parallaxElements.forEach(element => {
-                    const className = Array.from(element.classList).find(cls => cls.startsWith('parallax-'));
-                    const speed = speeds[className] || 0.3;
-                    const rect = element.getBoundingClientRect();
-                    const elementTop = rect.top + scrollY;
-                    
-                    // Only apply parallax when element is in or near viewport
-                    if (rect.bottom >= -windowHeight && rect.top <= windowHeight * 2) {
-                        // Calculate parallax based on scroll position
-                        const scrolled = scrollY - (elementTop - windowHeight);
-                        const translateY = scrolled * speed * 0.12; // Very subtle multiplier
-                        
-                        // Store parallax value in data attribute
-                        element.dataset.parallaxY = translateY;
-                        
-                        // Apply transform - will combine with hover scale via CSS
-                        element.style.setProperty('--parallax-translate', `${translateY}px`);
-                    }
-                });
-            }
-
-            // Add CSS for parallax transform that works with hover
-            const style = document.createElement('style');
-            style.textContent = `
-                .parallax-slow, .parallax-medium, .parallax-fast {
-                    transform: translate3d(0, var(--parallax-translate, 0), 0);
-                }
-                .parallax-slow:hover, .parallax-medium:hover, .parallax-fast:hover {
-                    transform: translate3d(0, var(--parallax-translate, 0), 0) scale(1.02);
-                }
-                .ingredient-image.parallax-slow:hover,
-                .ingredient-image.parallax-medium:hover,
-                .ingredient-image.parallax-fast:hover {
-                    transform: translate3d(0, var(--parallax-translate, 0), 0) scale(1.05);
-                }
-            `;
-            document.head.appendChild(style);
-
-            // Throttle scroll events for performance
-            let ticking = false;
-            window.addEventListener('scroll', function() {
-                if (!ticking) {
-                    window.requestAnimationFrame(function() {
-                        updateParallax();
-                        ticking = false;
-                    });
-                    ticking = true;
-                }
-            }, { passive: true });
-
-            // Initial call
-            updateParallax();
-        });
-
-        // Hero carousel functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const slides = document.querySelectorAll('.carousel-slide');
-            const dots = document.querySelectorAll('.carousel-dot');
-            let currentSlide = 0;
-            let carouselInterval;
-            let isTransitioning = false;
-
-            function showSlide(index) {
-                if (isTransitioning || index === currentSlide) return;
-                
-                isTransitioning = true;
-
-                // Remove active class from current slide and dot
-                slides[currentSlide].classList.remove('active');
-                dots[currentSlide].classList.remove('active');
-
-                // Add active class to new slide and dot
-                slides[index].classList.add('active');
-                dots[index].classList.add('active');
-                
-                currentSlide = index;
-
-                // Reset transition flag after transition completes
-                setTimeout(() => {
-                    isTransitioning = false;
-                }, 1600);
-            }
-
-            function nextSlide() {
-                if (isTransitioning) return;
-                const next = (currentSlide + 1) % slides.length;
-                showSlide(next);
-            }
-
-            function startCarousel() {
-                if (carouselInterval) clearInterval(carouselInterval);
-                carouselInterval = setInterval(nextSlide, 12000); // Change slide every 12 seconds
-            }
-
-            function stopCarousel() {
-                if (carouselInterval) {
-                    clearInterval(carouselInterval);
-                    carouselInterval = null;
-                }
-            }
-
-            // Dot navigation
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    if (isTransitioning || index === currentSlide) return;
-                    stopCarousel();
-                    showSlide(index);
-                    startCarousel();
-                });
-            });
-
-            // Pause on hover
-            const carouselContainer = document.querySelector('.carousel-container');
-            if (carouselContainer) {
-                carouselContainer.addEventListener('mouseenter', stopCarousel);
-                carouselContainer.addEventListener('mouseleave', startCarousel);
-            }
-
-            // Preload images and start carousel
-            const images = document.querySelectorAll('.carousel-slide img');
-            let loadedCount = 0;
-            
-            const checkAllLoaded = () => {
-                if (loadedCount === images.length) {
-                    // Ensure first slide is visible
-                    slides[0].classList.add('active');
-                    setTimeout(startCarousel, 1000);
-                }
-            };
-
-            images.forEach((img, index) => {
-                if (img.complete && img.naturalHeight !== 0) {
-                    loadedCount++;
-                    checkAllLoaded();
-                } else {
-                    img.addEventListener('load', () => {
-                        loadedCount++;
-                        checkAllLoaded();
-                    });
-                    img.addEventListener('error', () => {
-                        loadedCount++;
-                        checkAllLoaded();
-                    });
-                }
-            });
-        });
-    </script>
 
 </body>
 
