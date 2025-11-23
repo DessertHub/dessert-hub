@@ -170,8 +170,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const yearlyProfitDisplay = document.getElementById('yearly-profit');
 
     // Elements for static display updates
-    const costDisplay = document.querySelector('.text-4xl.font-bold.text-gray-400'); // $1.95
-    const priceDisplay = document.querySelector('.text-4xl.font-bold.text-black'); // $6.00
+    const costDisplay = document.getElementById('cost-display');
+    const priceDisplay = document.getElementById('price-display');
 
     function updateCalculator() {
         const cost = parseFloat(costInput.value) || 0;
